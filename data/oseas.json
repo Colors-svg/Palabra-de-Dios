@@ -68,17 +68,20 @@
         {
           "icono": "ancla",
           "titulo": "Justicia y Juicio",
-          "texto": "Un vínculo recto, transparente y firme que protege al vulnerable."
+          "texto": "Un vínculo recto, transparente y firme que protege al vulnerable.",
+          "detalle": "En Oseas 2:19, justicia (tsedeq) y juicio (mishpat) no son palabras frías de tribunal, sino la promesa de un trato recto y protector.\n\n• Dios no improvisa ni abandona su compromiso.\n• La relación se reconstruye sobre verdad, no sobre apariencias."
         },
         {
           "icono": "corazon",
           "titulo": "Benignidad y Misericordia",
-          "texto": "Ternura inmerecida que restaura incluso después de la ruptura."
+          "texto": "Ternura inmerecida que restaura incluso después de la ruptura.",
+          "detalle": "Benignidad (jesed) es amor leal que permanece aun cuando el otro falló. Misericordia (rajamim) evoca la ternura profunda de una madre hacia su hijo.\n\nLo que antes era \"Lo-ruhama\" (no compadecida) ahora recibe abrazo pleno."
         },
         {
           "icono": "luz",
           "titulo": "Fidelidad",
-          "texto": "La constancia de quien permanece cuando todo lo demás cambia."
+          "texto": "La constancia de quien permanece cuando todo lo demás cambia.",
+          "detalle": "La fidelidad (emunah) culmina en intimidad: \"y conocerás a Jehová\". En el lenguaje bíblico, conocer no es solo acumular datos, sino caminar en confianza mutua."
         }
       ],
       "animacion": "slide-up",
@@ -129,12 +132,14 @@
         {
           "icono": "camino",
           "titulo": "Enseñar a andar",
-          "texto": "Dios recuerda la infancia de Israel: sostener de los brazos con paciencia."
+          "texto": "Dios recuerda la infancia de Israel: sostener de los brazos con paciencia.",
+          "detalle": "Oseas 11:3 dice literalmente: \"Yo con todo eso enseñaba a andar al mismo Efraín, tomándole de los brazos; y no conoció que yo le cuidaba.\"\n\n• Imagen paternal: Dios no exige que el niño corra solo; se agacha, lo toma de los brazos y sostiene sus primeros pasos.\n• Aplicación concreta: incluso en etapas donde no percibimos su mano, su cuidado nos ha estado sosteniendo."
         },
         {
           "icono": "agua",
           "titulo": "Compasión encendida",
-          "texto": "«¿Cómo podré abandonarte, oh Efraín? Mi corazón se conmueve dentro de mí» (11:8)."
+          "texto": "«¿Cómo podré abandonarte, oh Efraín? Mi corazón se conmueve dentro de mí» (11:8).",
+          "detalle": "En Oseas 11:8-9 ocurre uno de los momentos más conmovedores del Antiguo Testamento: el corazón de Dios se conmueve antes de ejecutar el juicio.\n\n\"Porque Dios soy, y no hombre, el Santo en medio de ti.\"\nLa santidad de Dios aquí se manifiesta como compasión que no destruye por impulso."
         }
       ],
       "animacion": "parallax",

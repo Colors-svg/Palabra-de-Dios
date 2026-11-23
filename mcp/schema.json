@@ -104,7 +104,8 @@
                   "description": "Icono SVG minimalista disponible en PalabraRenderer.ICONS."
                 },
                 "titulo": { "type": "string" },
-                "texto": { "type": "string" }
+                "texto": { "type": "string" },
+                "detalle": { "type": "string", "description": "Texto ampliado opcional que se abre en ventana modal al pulsar el recuadro." }
               }
             }
           }

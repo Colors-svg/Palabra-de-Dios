@@ -52,17 +52,21 @@
     `;
   }
 
-  function renderRecuadrosHTML(recuadros = []) {
+  function renderRecuadrosHTML(recuadros = [], slideIndex = 0) {
     if (!recuadros || !recuadros.length) return "";
     return `
       <div class="recuadros-grid">
-        ${recuadros.map(item => `
-          <article class="recuadro-card anim-stagger">
+        ${recuadros.map((item, rIdx) => {
+          const hasDet = Boolean(item.detalle && item.detalle.trim());
+          return `
+          <article class="recuadro-card anim-stagger ${hasDet ? "has-detail" : ""}" ${hasDet ? `data-detail-slide="${slideIndex}" data-detail-rec="${rIdx}" tabindex="0" role="button"` : ""}>
             <div class="recuadro-icon" aria-hidden="true">${ICONS[item.icono] || ICONS.luz}</div>
             <h3 class="recuadro-title">${escapeHTML(item.titulo || "")}</h3>
             <p class="recuadro-text">${escapeHTML(item.texto || "")}</p>
+            ${hasDet ? `<span class="recuadro-more">Explorar <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>` : ""}
           </article>
-        `).join("")}
+        `;
+        }).join("")}
       </div>
     `;
   }
@@ -124,13 +128,17 @@
         ${slide.titulo ? `<h2 class="editorial-title anim-target">${escapeHTML(slide.titulo)}</h2>` : ""}
         ${slide.reflexion ? `<p class="editorial-subtitle anim-target">${escapeHTML(slide.reflexion)}</p>` : ""}
         <div class="timeline-list">
-          ${(slide.recuadros || []).map((item, i) => `
-            <article class="timeline-item anim-stagger">
+          ${(slide.recuadros || []).map((item, i) => {
+            const hasDet = Boolean(item.detalle && item.detalle.trim());
+            return `
+            <article class="timeline-item anim-stagger ${hasDet ? "has-detail" : ""}" ${hasDet ? `data-detail-slide="${index}" data-detail-rec="${i}" tabindex="0" role="button"` : ""}>
               <div class="timeline-step">0${i + 1}</div>
               <h3 class="recuadro-title">${escapeHTML(item.titulo || "")}</h3>
               <p class="recuadro-text">${escapeHTML(item.texto || "")}</p>
+              ${hasDet ? `<span class="recuadro-more">Explorar <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>` : ""}
             </article>
-          `).join("")}
+          `;
+          }).join("")}
         </div>
       `;
     } else if (tipo === "versiculo") {
@@ -165,7 +173,7 @@
         ${slide.titulo ? `<h2 class="editorial-title anim-target">${escapeHTML(slide.titulo)}</h2>` : ""}
         ${renderVerseHTML(slide, book, tipo === "imagen-completa" ? "glass" : "typographic")}
         ${slide.reflexion ? `<p class="reflexion-body anim-target">${escapeHTML(slide.reflexion)}</p>` : ""}
-        ${renderRecuadrosHTML(slide.recuadros)}
+        ${renderRecuadrosHTML(slide.recuadros, index)}
       `;
     }
 

@@ -1,22 +1,26 @@
 /* ==========================================================================
-   PALABRA VISUAL — VISOR PÚBLICO LIMPIO (viewer.js)
-   Listo desde el segundo 0 sin controles de edición ni autoplay/presentar
+   PALABRA VISUAL — VISOR PÚBLICO INDEPENDIENTE (viewer.js)
+   - Sin selector de libros (cada lectura tiene su propia subpágina/URL)
+   - Scroll vertical fluido en móvil (<= 860px) y slides cinematográficos en escritorio
+   - Ventana modal desplegable al pulsar recuadros con información ampliada
    ========================================================================== */
 (function () {
-  const { escapeHTML, buildSlideHTML, animateSlideContent, preloadImages } = window.PalabraRenderer;
+  const { ICONS, escapeHTML, buildSlideHTML, animateSlideContent, preloadImages } = window.PalabraRenderer;
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const THEMES = ["oscuro", "claro", "sepia"];
   const THEME_NAMES = { oscuro: "Noche", claro: "Amanecer", sepia: "Pergamino" };
 
   const state = {
-    catalog: [],
     book: null,
     currentBookKey: "oseas",
     currentIndex: 0,
     isTransitioning: false,
     theme: "oscuro",
-    lockTimer: null
+    lockTimer: null,
+    observer: null
   };
+
+  const isMobileScroll = () => window.innerWidth <= 860;
 
   const stageEl = document.getElementById("slides-stage");
   const counterEl = document.getElementById("slide-counter");
@@ -25,11 +29,13 @@
   const progressTrackEl = document.getElementById("progress-track");
   const indexDrawer = document.getElementById("index-drawer");
   const drawerBackdropEl = document.getElementById("drawer-backdrop");
+  const detailBackdropEl = document.getElementById("detail-modal-backdrop");
 
   function setTheme(themeName) {
     state.theme = THEMES.includes(themeName) ? themeName : "oscuro";
     document.documentElement.setAttribute("data-theme", state.theme);
-    document.getElementById("theme-label").textContent = THEME_NAMES[state.theme];
+    const lbl = document.getElementById("theme-label");
+    if (lbl) lbl.textContent = THEME_NAMES[state.theme];
     document.querySelectorAll("[data-theme-choice]").forEach(btn => {
       const isSel = btn.dataset.themeChoice === state.theme;
       btn.classList.toggle("is-selected", isSel);
@@ -48,6 +54,22 @@
     indexDrawer.classList.remove("is-open");
     drawerBackdropEl.classList.remove("is-open");
     indexDrawer.setAttribute("aria-hidden", "true");
+  }
+
+  function openDetailModal(slideIdx, recIdx) {
+    const item = state.book?.slides?.[slideIdx]?.recuadros?.[recIdx];
+    if (!item || !detailBackdropEl) return;
+    document.getElementById("detail-modal-icon").innerHTML = ICONS[item.icono] || ICONS.luz;
+    document.getElementById("detail-modal-title").textContent = item.titulo || "";
+    document.getElementById("detail-modal-body").textContent = item.detalle || item.texto || "";
+    detailBackdropEl.classList.add("is-open");
+    detailBackdropEl.setAttribute("aria-hidden", "false");
+  }
+
+  function closeDetailModal() {
+    if (!detailBackdropEl) return;
+    detailBackdropEl.classList.remove("is-open");
+    detailBackdropEl.setAttribute("aria-hidden", "true");
   }
 
   function checkLockState() {
@@ -114,6 +136,25 @@
     document.querySelectorAll(".thumb-card").forEach((card, i) => card.classList.toggle("is-active", i === state.currentIndex));
   }
 
+  function setupMobileScrollObserver() {
+    if (state.observer) state.observer.disconnect();
+    if (!isMobileScroll()) return;
+
+    state.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = Number(entry.target.dataset.index);
+          if (!Number.isNaN(idx) && idx !== state.currentIndex) {
+            state.currentIndex = idx;
+            updateChrome();
+          }
+        }
+      });
+    }, { root: stageEl, threshold: 0.45 });
+
+    stageEl.querySelectorAll(".slide").forEach(el => state.observer.observe(el));
+  }
+
   function renderAllSlides() {
     const slides = state.book.slides || [];
     if (state.currentIndex >= slides.length) state.currentIndex = Math.max(0, slides.length - 1);
@@ -136,25 +177,41 @@
     updateChrome();
     const all = stageEl.querySelectorAll(".slide");
     all.forEach((el, i) => {
-      el.classList.toggle("is-active", i === state.currentIndex);
-      el.setAttribute("aria-hidden", i !== state.currentIndex);
-      if (i === state.currentIndex) {
-        gsap.set(el, { opacity: 1, visibility: "visible" });
-        animateSlideContent(el, slides[i], prefersReducedMotion);
+      if (isMobileScroll()) {
+        el.classList.add("is-active");
+        el.setAttribute("aria-hidden", "false");
+        gsap.set(el, { clearProps: "opacity,visibility,transform" });
       } else {
-        gsap.set(el, { opacity: 0, visibility: "hidden" });
+        el.classList.toggle("is-active", i === state.currentIndex);
+        el.setAttribute("aria-hidden", i !== state.currentIndex);
+        if (i === state.currentIndex) {
+          gsap.set(el, { opacity: 1, visibility: "visible" });
+          animateSlideContent(el, slides[i], prefersReducedMotion);
+        } else {
+          gsap.set(el, { opacity: 0, visibility: "hidden" });
+        }
       }
     });
+    setupMobileScrollObserver();
     preloadImages(slides);
   }
 
   function goToSlide(nextIdx) {
     const total = state.book?.slides?.length || 0;
-    if (total === 0 || nextIdx < 0 || nextIdx >= total || nextIdx === state.currentIndex || state.isTransitioning) return;
+    if (total === 0 || nextIdx < 0 || nextIdx >= total) return;
+
+    const nextEl = stageEl.querySelector(`.slide[data-index="${nextIdx}"]`);
+    if (isMobileScroll()) {
+      state.currentIndex = nextIdx;
+      updateChrome();
+      nextEl?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      return;
+    }
+
+    if (nextIdx === state.currentIndex || state.isTransitioning) return;
 
     const prevIdx = state.currentIndex;
     const prevEl = stageEl.querySelector(`.slide[data-index="${prevIdx}"]`);
-    const nextEl = stageEl.querySelector(`.slide[data-index="${nextIdx}"]`);
     const direction = nextIdx > prevIdx ? 1 : -1;
 
     state.currentIndex = nextIdx;
@@ -191,57 +248,22 @@
   const nextSlide = () => { if (state.currentIndex < state.book.slides.length - 1) goToSlide(state.currentIndex + 1); };
   const prevSlide = () => { if (state.currentIndex > 0) goToSlide(state.currentIndex - 1); };
 
-  async function loadBook(key) {
-    const entry = state.catalog.find(b => b.key === key) || state.catalog[0];
-    if (!entry) return;
-    const res = await fetch(entry.archivo);
-    state.book = await res.json();
-    state.currentBookKey = entry.key;
-    state.currentIndex = 0;
-
-    document.getElementById("book-current-label").textContent = state.book.libro || entry.titulo;
-    document.querySelectorAll("[data-book]").forEach(el => {
-      const isSel = el.dataset.book === entry.key;
-      el.classList.toggle("is-selected", isSel);
-      el.setAttribute("aria-selected", String(isSel));
-    });
-
-    if (state.book.tema?.modo) setTheme(state.book.tema.modo);
-    renderAllSlides();
-    checkLockState();
-  }
-
-  function renderBookMenu() {
-    const menu = document.getElementById("book-dropdown-menu");
-    menu.innerHTML = state.catalog.map(b => `
-      <button class="dropdown-item ${b.key === state.currentBookKey ? "is-selected" : ""}" role="option" aria-selected="${b.key === state.currentBookKey}" data-book="${escapeHTML(b.key)}">
-        <div>
-          <span class="dropdown-item-title">${escapeHTML(b.titulo)}</span>
-          <span class="dropdown-item-sub">${b.slides} diapositivas &middot; ${escapeHTML(b.version)}</span>
-        </div>
-        <svg class="dropdown-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      </button>
-    `).join("");
-
-    menu.querySelectorAll("[data-book]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        loadBook(btn.dataset.book);
-        closeAllDropdowns();
-      });
-    });
-  }
-
   async function init() {
     const params = new URLSearchParams(window.location.search);
-    const requestedBook = params.get("libro") || "oseas";
+    const key = (window.PALABRA_BOOK || params.get("libro") || "oseas").toLowerCase().replace(/[^a-z0-9-_]/g, "");
+    state.currentBookKey = key;
 
     try {
-      const catRes = await fetch("data/libros.json");
-      state.catalog = await catRes.json();
-      renderBookMenu();
-      await loadBook(requestedBook);
-    } catch (err) {
-      stageEl.innerHTML = `<div style="margin:auto;text-align:center;padding:2rem;"><h2>No se pudo cargar el contenido</h2><p style="opacity:0.7;margin-top:0.5rem;">Abre este sitio mediante un servidor web o GitHub Pages.</p></div>`;
+      const res = await fetch(`data/${key}.json`);
+      if (!res.ok) throw new Error("Libro no encontrado");
+      state.book = await res.json();
+      document.getElementById("book-current-label").textContent = state.book.libro || key;
+      document.title = `${state.book.libro || key} — Palabra Visual`;
+      if (state.book.tema?.modo) setTheme(state.book.tema.modo);
+      renderAllSlides();
+      checkLockState();
+    } catch {
+      stageEl.innerHTML = `<div style="margin:auto;text-align:center;padding:2rem;"><h2>No se pudo cargar la lectura</h2><p style="opacity:0.7;margin-top:0.5rem;">Verifica que exista <code>data/${escapeHTML(key)}.json</code>.</p></div>`;
     }
 
     document.getElementById("btn-prev").addEventListener("click", prevSlide);
@@ -259,6 +281,11 @@
     });
     document.getElementById("btn-close-index").addEventListener("click", closeDrawers);
     drawerBackdropEl.addEventListener("click", closeDrawers);
+
+    document.getElementById("detail-modal-close")?.addEventListener("click", closeDetailModal);
+    detailBackdropEl?.addEventListener("click", (e) => {
+      if (e.target === detailBackdropEl) closeDetailModal();
+    });
 
     document.querySelectorAll(".dropdown-trigger").forEach(trigger => {
       trigger.addEventListener("click", (e) => {
@@ -282,11 +309,20 @@
 
     document.addEventListener("click", (e) => {
       if (!e.target.closest(".dropdown")) closeAllDropdowns();
+
+      const detailCard = e.target.closest("[data-detail-slide]");
+      if (detailCard) {
+        openDetailModal(Number(detailCard.dataset.detailSlide), Number(detailCard.dataset.detailRec));
+        return;
+      }
+
       const gotoBtn = e.target.closest("[data-goto]");
       if (gotoBtn) {
         goToSlide(Number(gotoBtn.dataset.goto));
         if (indexDrawer.classList.contains("is-open")) closeDrawers();
+        return;
       }
+
       const actionBtn = e.target.closest("[data-action]");
       if (actionBtn) {
         if (actionBtn.dataset.action === "next-slide") nextSlide();
@@ -295,16 +331,27 @@
     });
 
     document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { closeDetailModal(); closeDrawers(); closeAllDropdowns(); return; }
+      if (detailBackdropEl?.classList.contains("is-open")) return;
+
+      const activeDetail = document.activeElement?.closest("[data-detail-slide]");
+      if (activeDetail && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        openDetailModal(Number(activeDetail.dataset.detailSlide), Number(activeDetail.dataset.detailRec));
+        return;
+      }
+
+      if (isMobileScroll()) return;
       if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); nextSlide(); }
       else if (e.key === "ArrowLeft") { e.preventDefault(); prevSlide(); }
       else if (e.key === "Home") goToSlide(0);
       else if (e.key === "End") goToSlide(state.book.slides.length - 1);
       else if (e.key.toLowerCase() === "f") document.getElementById("btn-fullscreen").click();
-      else if (e.key === "Escape") { closeDrawers(); closeAllDropdowns(); }
     });
 
     let lastWheel = 0;
     stageEl.addEventListener("wheel", (e) => {
+      if (isMobileScroll()) return;
       const activeSlide = stageEl.querySelector(".slide.is-active");
       if (activeSlide && activeSlide.scrollHeight > activeSlide.clientHeight + 10) {
         const atTop = activeSlide.scrollTop <= 2;
@@ -318,19 +365,9 @@
       else prevSlide();
     }, { passive: true });
 
-    let touchStartX = 0, touchStartY = 0;
-    stageEl.addEventListener("touchstart", (e) => {
-      touchStartX = e.changedTouches[0].clientX;
-      touchStartY = e.changedTouches[0].clientY;
-    }, { passive: true });
-    stageEl.addEventListener("touchend", (e) => {
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      const dy = e.changedTouches[0].clientY - touchStartY;
-      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
-        if (dx < 0) nextSlide();
-        else prevSlide();
-      }
-    }, { passive: true });
+    window.addEventListener("resize", () => {
+      if (state.book) renderAllSlides();
+    });
   }
 
   init();

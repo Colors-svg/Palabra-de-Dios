@@ -541,6 +541,87 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .countdown-num { display: block; font-family: var(--font-display); font-size: clamp(2rem, 6vw, 3.25rem); font-weight: 500; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
 .countdown-label { display: block; margin-top: 0.35rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-secondary); }
 
+.recuadro-card.has-detail, .timeline-item.has-detail {
+  cursor: pointer;
+}
+.recuadro-card.has-detail:hover, .timeline-item.has-detail:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.recuadro-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.88;
+}
+
+/* Modal desplegable de detalle al hacer clic en un recuadro */
+.detail-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-modal) + 5);
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.detail-modal-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.detail-modal {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--border-subtle);
+  border-top: 1px solid var(--border-glow);
+  border-radius: 24px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--shadow-soft);
+  color: var(--text-primary);
+  transform: translateY(14px) scale(0.97);
+  transition: transform 0.35s var(--ease-editorial);
+}
+.detail-modal-backdrop.is-open .detail-modal {
+  transform: translateY(0) scale(1);
+}
+.detail-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.detail-modal-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  padding-right: 2rem;
+}
+.detail-modal-body {
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--text-secondary);
+  white-space: pre-line;
+}
+
 .toast {
   position: fixed; bottom: 4.5rem; left: 50%; transform: translateX(-50%) translateY(16px);
   background: var(--bg-glass-strong); border: 1px solid var(--border-glow); color: var(--text-primary);
@@ -550,9 +631,26 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .toast.is-visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* ==========================================================================
-   RESPONSIVE: MÓVIL VERTICAL 9:16, TABLET Y PROYECTOR
+   RESPONSIVE: MÓVIL VERTICAL 9:16 (CON SCROLL), TABLET Y PROYECTOR
    ========================================================================== */
 @media (max-width: 860px) {
+  body:not(.admin-body) .slides-stage {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+  body:not(.admin-body) .slide {
+    position: relative;
+    inset: auto;
+    min-height: 100svh;
+    height: auto;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    scroll-snap-align: start;
+    overflow-y: visible;
+  }
   .split-layout { grid-template-columns: 1fr; gap: 1.25rem; }
   .split-media { aspect-ratio: 16 / 10; max-height: 34vh; }
   .layout-derecha .split-media { order: 0; }

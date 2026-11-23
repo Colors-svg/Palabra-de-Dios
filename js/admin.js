@@ -105,7 +105,8 @@
           <button class="btn-studio st-rec-del" type="button" style="justify-content:center;">Quitar</button>
         </div>
         <input class="field-input st-rec-title" type="text" placeholder="Título" value="${escapeHTML(r.titulo || "")}" />
-        <textarea class="field-textarea st-rec-text" placeholder="Texto">${escapeHTML(r.texto || "")}</textarea>
+        <textarea class="field-textarea st-rec-text" placeholder="Texto breve">${escapeHTML(r.texto || "")}</textarea>
+        <textarea class="field-textarea st-rec-detalle" placeholder="Detalle desplegable al hacer clic (opcional)...">${escapeHTML(r.detalle || "")}</textarea>
       </div>
     `).join("");
 
@@ -116,11 +117,13 @@
         rec.icono = card.querySelector(".st-rec-icon").value;
         rec.titulo = card.querySelector(".st-rec-title").value;
         rec.texto = card.querySelector(".st-rec-text").value;
+        rec.detalle = card.querySelector(".st-rec-detalle").value;
         renderCanvasSlide();
       };
       card.querySelector(".st-rec-icon").addEventListener("change", update);
       card.querySelector(".st-rec-title").addEventListener("input", update);
       card.querySelector(".st-rec-text").addEventListener("input", update);
+      card.querySelector(".st-rec-detalle").addEventListener("input", update);
       card.querySelector(".st-rec-del").addEventListener("click", () => {
         state.book.slides[state.currentIndex].recuadros.splice(idx, 1);
         syncInspector();
@@ -428,7 +431,7 @@
     });
 
     document.getElementById("st-open-viewer").addEventListener("click", () => {
-      window.open(`index.html?libro=${encodeURIComponent(state.currentKey)}`, "_blank");
+      window.open(`${encodeURIComponent(state.currentKey)}.html`, "_blank");
     });
 
     bindCanvasDirectDrag();

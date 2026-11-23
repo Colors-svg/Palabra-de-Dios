@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Palabra Visual — Reflexiones Bíblicas</title>
-  <meta name="description" content="Recorrido visual contemplativo y editorial por los libros de la Biblia." />
+  <title>Oseas — Palabra Visual</title>
+  <meta name="description" content="Recorrido visual contemplativo y editorial por el libro de Oseas." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,14 +24,7 @@
         <button class="icon-btn" id="btn-index" aria-label="Abrir índice de diapositivas" title="Índice de diapositivas">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="15" y2="12"/><line x1="4" y1="17" x2="18" y2="17"/></svg>
         </button>
-
-        <div class="dropdown" id="book-dropdown">
-          <button class="dropdown-trigger dropdown-trigger--book" id="book-dropdown-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Cambiar libro de reflexión">
-            <span id="book-current-label">Oseas</span>
-            <svg class="dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <div class="dropdown-menu" id="book-dropdown-menu" role="listbox" aria-label="Libros disponibles"></div>
-        </div>
+        <span id="book-current-label" style="font-family:var(--font-display);font-size:1.18rem;font-weight:500;padding:0 0.65rem 0 0.3rem;">Oseas</span>
       </div>
 
       <div class="top-actions">
@@ -95,6 +88,18 @@
         </button>
       </div>
     </footer>
+
+    <!-- Modal de detalle desplegable al pulsar un recuadro -->
+    <div class="detail-modal-backdrop" id="detail-modal-backdrop" aria-hidden="true">
+      <div class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title">
+        <button class="icon-btn detail-modal-close" id="detail-modal-close" aria-label="Cerrar ventana">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="recuadro-icon" id="detail-modal-icon" aria-hidden="true"></div>
+        <h3 class="detail-modal-title" id="detail-modal-title"></h3>
+        <div class="detail-modal-body" id="detail-modal-body"></div>
+      </div>
+    </div>
 
     <!-- Pantalla de Revelado Dinámico -->
     <section class="lock-screen" id="lock-screen" aria-label="Contenido programado">
