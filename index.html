@@ -396,14 +396,14 @@
     .verse-text {
       font-family: var(--font-display);
       font-weight: 400;
-      font-size: clamp(1.45rem, 1.15rem + 1.5vw, 2.55rem);
-      line-height: 1.38;
+      font-size: clamp(1.62rem, 1.2rem + 2.1vw, 2.85rem);
+      line-height: 1.35;
       letter-spacing: -0.005em;
     }
 
     .slide-tipo-versiculo .verse-text {
-      font-size: clamp(1.65rem, 1.25rem + 1.9vw, 3rem);
-      line-height: 1.34;
+      font-size: clamp(1.92rem, 1.35rem + 2.6vw, 3.45rem);
+      line-height: 1.28;
     }
 
     .verse-word {
@@ -1429,7 +1429,170 @@
     }
 
     /* ==========================================================================
-       7. RESPONSIVE Y ACCESIBILIDAD (Móvil, Tablet, Proyector 16:9)
+       7. ENCUADRE INTERACTIVO, MODO COMPARTIR Y PANTALLA DE DESBLOQUEO
+       ========================================================================== */
+    .slide-bg {
+      transform: scale(var(--img-zoom, 1));
+      transition: transform 0.35s var(--ease-editorial);
+    }
+
+    /* Ocultar controles de autor en enlace compartido (?modo=ver) */
+    body.is-viewer-mode #btn-editor,
+    body.is-viewer-mode #editor-drawer,
+    body.is-viewer-mode #btn-share {
+      display: none !important;
+    }
+
+    /* Widget 2D de punto focal en el Editor */
+    .focal-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      cursor: crosshair;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .focal-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      opacity: 0.88;
+    }
+
+    .focal-box-empty {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .focal-handle {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      background: rgba(207, 168, 110, 0.45);
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.4);
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .focal-handle::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ffffff;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Drag and drop de diapositivas en el índice */
+    .thumb-card[draggable="true"] {
+      cursor: grab;
+    }
+
+    .thumb-card.is-dragging {
+      opacity: 0.45;
+      transform: scale(0.98);
+    }
+
+    .thumb-card.drag-over {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+
+    /* Pantalla de Revelado Dinámico / Cuenta Regresiva */
+    .lock-screen {
+      position: fixed;
+      inset: 0;
+      z-index: calc(var(--z-modal) + 10);
+      background: var(--bg-base);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1.5rem, 5vw, 3.5rem);
+      text-align: center;
+      overflow-y: auto;
+    }
+
+    .lock-screen.is-active {
+      display: flex;
+    }
+
+    .lock-bg {
+      position: absolute;
+      inset: 0;
+      opacity: 0.28;
+      background-size: cover;
+      background-position: center;
+      filter: blur(18px) scale(1.1);
+      pointer-events: none;
+    }
+
+    .lock-card {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      width: 100%;
+      background: var(--bg-glass-strong);
+      backdrop-filter: blur(26px);
+      -webkit-backdrop-filter: blur(26px);
+      border: 1px solid var(--border-subtle);
+      border-top: 1px solid var(--border-glow);
+      border-radius: 26px;
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(0.55rem, 2vw, 1.1rem);
+      margin: var(--space-md) auto;
+      max-width: 500px;
+    }
+
+    .countdown-cell {
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: clamp(0.75rem, 2vw, 1.15rem) 0.5rem;
+    }
+
+    .countdown-num {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.25rem);
+      font-weight: 500;
+      line-height: 1;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       8. RESPONSIVE Y ACCESIBILIDAD (Móvil Vertical, Tablet, Proyector 16:9)
        ========================================================================== */
     @media (max-width: 860px) {
       .split-layout {
@@ -1439,7 +1602,7 @@
 
       .split-media {
         aspect-ratio: 16 / 10;
-        max-height: 32vh;
+        max-height: 34vh;
       }
 
       .layout-derecha .split-media {
@@ -1461,6 +1624,45 @@
 
       .dots-nav {
         display: none;
+      }
+    }
+
+    /* Optimización dedicada para formato vertical de teléfonos (9:16) */
+    @media (max-width: 640px), (max-aspect-ratio: 1/1) {
+      .slide-inner {
+        padding: 4.35rem 1.25rem 5rem;
+      }
+
+      .verse-block.variant-glass {
+        padding: 1.45rem 1.2rem;
+        border-radius: 18px;
+      }
+
+      .verse-text {
+        font-size: clamp(1.58rem, 5.6vw, 2.35rem);
+        line-height: 1.32;
+      }
+
+      .slide-tipo-versiculo .verse-text {
+        font-size: clamp(1.85rem, 6.4vw, 2.75rem);
+        line-height: 1.26;
+      }
+
+      .editorial-title {
+        font-size: clamp(1.95rem, 7vw, 2.75rem);
+      }
+
+      .slide-tipo-portada .editorial-title {
+        font-size: clamp(2.85rem, 11vw, 4rem);
+      }
+
+      .reflexion-body {
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .countdown-grid {
+        gap: 0.45rem;
       }
     }
 
@@ -1585,6 +1787,11 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
         </button>
 
+        <button class="pill-btn" id="btn-share" aria-label="Copiar enlace limpio para compartir" title="Copiar enlace para compartir">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          <span class="pill-label">Compartir</span>
+        </button>
+
         <button class="pill-btn" id="btn-editor" aria-label="Abrir modo editor" title="Editar contenido">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
           <span class="pill-label">Editar</span>
@@ -1608,6 +1815,23 @@
         </button>
       </div>
     </footer>
+
+    <!-- Pantalla de Revelado Dinámico (Cuenta regresiva) -->
+    <section class="lock-screen" id="lock-screen" aria-label="Contenido programado">
+      <div class="lock-bg" id="lock-bg"></div>
+      <div class="lock-card">
+        <span class="kicker" id="lock-kicker">Próxima reflexión</span>
+        <h2 class="editorial-title" id="lock-title" style="margin-inline: auto;">Oseas</h2>
+        <p class="editorial-subtitle" id="lock-msg" style="margin-inline: auto;">Esta reflexión estará disponible muy pronto para el tiempo de meditación.</p>
+        <div class="countdown-grid" role="timer" aria-live="polite">
+          <div class="countdown-cell"><span class="countdown-num" id="cd-days">00</span><span class="countdown-label">Días</span></div>
+          <div class="countdown-cell"><span class="countdown-num" id="cd-hours">00</span><span class="countdown-label">Horas</span></div>
+          <div class="countdown-cell"><span class="countdown-num" id="cd-mins">00</span><span class="countdown-label">Min</span></div>
+          <div class="countdown-cell"><span class="countdown-num" id="cd-secs">00</span><span class="countdown-label">Seg</span></div>
+        </div>
+        <p style="font-size: var(--text-xs); color: var(--text-muted); letter-spacing: 0.08em;" id="lock-date-label"></p>
+      </div>
+    </section>
 
     <div class="drawer-backdrop" id="drawer-backdrop"></div>
 
@@ -1695,6 +1919,18 @@
               <input class="file-upload-input" id="ed-imagen-file" type="file" accept="image/*" />
             </label>
           </div>
+          <div class="field-group">
+            <label class="field-label">Encuadre narrativo (arrastra el punto focal: <span id="ed-focal-val">50%, 50%</span>)</label>
+            <div class="focal-box" id="ed-focal-box">
+              <img id="ed-focal-img" src="" alt="" style="display:none" />
+              <div class="focal-box-empty" id="ed-focal-empty">Sin imagen asignada</div>
+              <div class="focal-handle" id="ed-focal-handle" style="left:50%; top:50%; display:none"></div>
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="ed-zoom">Zoom de encuadre (<span id="ed-zoom-val">1.00</span>x)</label>
+            <input class="field-range" id="ed-zoom" type="range" min="1" max="1.5" step="0.02" value="1" />
+          </div>
         </div>
 
         <!-- Contenido Textual y Bíblico -->
@@ -1727,6 +1963,23 @@
           <div class="editor-section-title">Recuadros / Elementos</div>
           <div id="ed-recuadros-list"></div>
           <button class="btn-sm" id="ed-add-recuadro">+ Agregar recuadro</button>
+        </div>
+
+        <!-- Revelado Dinámico (Desbloqueo programado) -->
+        <div class="editor-section">
+          <div class="editor-section-title">Revelado Dinámico (Programar apertura)</div>
+          <div class="field-group">
+            <label class="field-label" for="ed-desbloqueo">Fecha y hora de desbloqueo (opcional)</label>
+            <input class="field-input" id="ed-desbloqueo" type="datetime-local" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="ed-bloqueo-msg">Mensaje mientras está bloqueado</label>
+            <input class="field-input" id="ed-bloqueo-msg" type="text" placeholder="Esta reflexión se revelará al iniciar la reunión..." />
+          </div>
+          <div class="editor-slide-toolbar">
+            <button class="btn-sm" id="ed-preview-lock" type="button">Previsualizar espera</button>
+            <button class="btn-sm" id="ed-clear-lock" type="button">Quitar bloqueo</button>
+          </div>
         </div>
 
         <!-- Exportar / Importar JSON -->
@@ -2178,6 +2431,7 @@
        ========================================================================== */
     const state = {
       book: structuredClone(REFLEXIONES),
+      currentBookKey: "oseas",
       currentIndex: 0,
       isTransitioning: false,
       theme: REFLEXIONES.tema?.modo || "oscuro",
@@ -2185,6 +2439,9 @@
       autoplayTimer: null,
       isHovering: false,
       isPresenting: false,
+      isViewerMode: false,
+      bypassLock: false,
+      lockTimer: null,
       uiRevealTimer: null
     };
 
@@ -2284,9 +2541,13 @@
         overlayStyle = `background: linear-gradient(to right, rgba(var(--overlay-rgb), ${Math.min(0.9, overlayAlpha + 0.2)}) 0%, rgba(var(--overlay-rgb), ${overlayAlpha * 0.6}) 60%, rgba(var(--overlay-rgb), ${overlayAlpha * 0.3}) 100%);`;
       }
 
+      const enc = slide.encuadre || { x: 50, y: 50, zoom: 1 };
+      const focalStyle = `object-position: ${enc.x ?? 50}% ${enc.y ?? 50}%;`;
+      const zoomStyle = `--img-zoom: ${enc.zoom ?? 1};`;
+
       const bgHTML = (hasBg && tipo !== "dividida") ? `
-        <div class="slide-bg">
-          <img class="slide-bg-img ${slide.animacion === "zoom-lento" || hasBg ? "ken-burns" : ""}" src="${escapeHTML(slide.imagen)}" alt="" loading="lazy" />
+        <div class="slide-bg" style="${zoomStyle}">
+          <img class="slide-bg-img ${slide.animacion === "zoom-lento" || hasBg ? "ken-burns" : ""}" style="${focalStyle}" src="${escapeHTML(slide.imagen)}" alt="" loading="lazy" />
         </div>
         <div class="slide-overlay" style="${overlayStyle}"></div>
       ` : "";
@@ -2308,7 +2569,7 @@
         innerHTML = `
           <div class="split-layout">
             <div class="split-media anim-target">
-              <img src="${escapeHTML(slide.imagen || "")}" alt="${escapeHTML(slide.titulo || "")}" loading="lazy" />
+              <img src="${escapeHTML(slide.imagen || "")}" alt="${escapeHTML(slide.titulo || "")}" style="${focalStyle} transform: scale(${enc.zoom ?? 1});" loading="lazy" />
             </div>
             <div class="split-content">
               ${slide.subtitulo ? `<span class="kicker anim-target">${escapeHTML(slide.subtitulo)}</span>` : ""}
@@ -2693,8 +2954,9 @@
 
     function renderIndexDrawer() {
       const list = document.getElementById("index-list");
+      const canDrag = !state.isViewerMode;
       list.innerHTML = state.book.slides.map((s, i) => `
-        <button class="thumb-card ${i === state.currentIndex ? "is-active" : ""}" data-goto="${i}">
+        <button class="thumb-card ${i === state.currentIndex ? "is-active" : ""}" data-goto="${i}" data-drag-idx="${i}" ${canDrag ? 'draggable="true"' : ""}>
           <div class="thumb-preview">
             ${s.imagen ? `<img src="${escapeHTML(s.imagen)}" alt="" />` : `<span>${i + 1}</span>`}
           </div>
@@ -2704,6 +2966,63 @@
           </div>
         </button>
       `).join("");
+
+      if (!canDrag) return;
+      let dragSrcIdx = null;
+      list.querySelectorAll(".thumb-card").forEach(card => {
+        card.addEventListener("dragstart", (e) => {
+          dragSrcIdx = Number(card.dataset.dragIdx);
+          card.classList.add("is-dragging");
+          e.dataTransfer.effectAllowed = "move";
+        });
+        card.addEventListener("dragover", (e) => {
+          e.preventDefault();
+          card.classList.add("drag-over");
+        });
+        card.addEventListener("dragleave", () => card.classList.remove("drag-over"));
+        card.addEventListener("drop", (e) => {
+          e.preventDefault();
+          card.classList.remove("drag-over");
+          const targetIdx = Number(card.dataset.dragIdx);
+          if (dragSrcIdx === null || dragSrcIdx === targetIdx) return;
+          const [moved] = state.book.slides.splice(dragSrcIdx, 1);
+          state.book.slides.splice(targetIdx, 0, moved);
+          state.currentIndex = targetIdx;
+          renderAllSlides();
+          syncEditorFromCurrentSlide();
+          showToast("Diapositiva reordenada");
+        });
+        card.addEventListener("dragend", () => {
+          card.classList.remove("is-dragging");
+          list.querySelectorAll(".thumb-card").forEach(c => c.classList.remove("drag-over"));
+        });
+      });
+    }
+
+    function updateFocalPreviewUI(slide) {
+      const enc = slide.encuadre || { x: 50, y: 50, zoom: 1 };
+      const x = Math.round(enc.x ?? 50);
+      const y = Math.round(enc.y ?? 50);
+      const zoom = Number(enc.zoom ?? 1);
+      const imgEl = document.getElementById("ed-focal-img");
+      const emptyEl = document.getElementById("ed-focal-empty");
+      const handleEl = document.getElementById("ed-focal-handle");
+      document.getElementById("ed-focal-val").textContent = `${x}%, ${y}%`;
+      document.getElementById("ed-zoom").value = zoom;
+      document.getElementById("ed-zoom-val").textContent = zoom.toFixed(2);
+
+      if (slide.imagen) {
+        imgEl.src = slide.imagen;
+        imgEl.style.display = "block";
+        emptyEl.style.display = "none";
+        handleEl.style.display = "block";
+        handleEl.style.left = `${x}%`;
+        handleEl.style.top = `${y}%`;
+      } else {
+        imgEl.style.display = "none";
+        emptyEl.style.display = "flex";
+        handleEl.style.display = "none";
+      }
     }
 
     function syncEditorFromCurrentSlide() {
@@ -2721,7 +3040,10 @@
       document.getElementById("ed-versiculo-texto").value = slide.versiculo?.texto || "";
       document.getElementById("ed-versiculo-ref").value = slide.versiculo?.referencia || "";
       document.getElementById("ed-reflexion").value = slide.reflexion || "";
+      document.getElementById("ed-desbloqueo").value = state.book.desbloqueo || "";
+      document.getElementById("ed-bloqueo-msg").value = state.book.bloqueoMensaje || "";
 
+      updateFocalPreviewUI(slide);
       renderEditorRecuadros(slide.recuadros || []);
     }
 
@@ -2794,7 +3116,10 @@
         state.book.slides[state.currentIndex].overlay = parseFloat(v);
         document.getElementById("ed-overlay-val").textContent = parseFloat(v).toFixed(2);
       });
-      bindField("ed-imagen", v => { state.book.slides[state.currentIndex].imagen = v; });
+      bindField("ed-imagen", v => {
+        state.book.slides[state.currentIndex].imagen = v;
+        updateFocalPreviewUI(state.book.slides[state.currentIndex]);
+      });
       bindField("ed-titulo", v => { state.book.slides[state.currentIndex].titulo = v; });
       bindField("ed-subtitulo", v => { state.book.slides[state.currentIndex].subtitulo = v; });
       bindField("ed-versiculo-texto", v => {
@@ -2815,10 +3140,72 @@
         reader.onload = () => {
           state.book.slides[state.currentIndex].imagen = reader.result;
           document.getElementById("ed-imagen").value = "(Imagen local cargada)";
+          updateFocalPreviewUI(state.book.slides[state.currentIndex]);
           refreshCurrentSlideInPlace();
           showToast("Imagen local aplicada");
         };
         reader.readAsDataURL(file);
+      });
+
+      // Encuadre narrativo 2D interactivo (arrastrar punto focal)
+      const focalBox = document.getElementById("ed-focal-box");
+      let isDraggingFocal = false;
+      const applyFocalFromPointer = (clientX, clientY) => {
+        const slide = state.book.slides[state.currentIndex];
+        if (!slide || !slide.imagen) return;
+        const rect = focalBox.getBoundingClientRect();
+        const x = Math.max(0, Math.min(100, ((clientX - rect.left) / rect.width) * 100));
+        const y = Math.max(0, Math.min(100, ((clientY - rect.top) / rect.height) * 100));
+        slide.encuadre = slide.encuadre || { x: 50, y: 50, zoom: 1 };
+        slide.encuadre.x = Math.round(x);
+        slide.encuadre.y = Math.round(y);
+        updateFocalPreviewUI(slide);
+        const activeImg = stageEl.querySelector(`.slide[data-index="${state.currentIndex}"] .slide-bg-img, .slide[data-index="${state.currentIndex}"] .split-media img`);
+        if (activeImg) activeImg.style.objectPosition = `${slide.encuadre.x}% ${slide.encuadre.y}%`;
+      };
+
+      focalBox.addEventListener("pointerdown", (e) => {
+        isDraggingFocal = true;
+        focalBox.setPointerCapture(e.pointerId);
+        applyFocalFromPointer(e.clientX, e.clientY);
+      });
+      focalBox.addEventListener("pointermove", (e) => {
+        if (isDraggingFocal) applyFocalFromPointer(e.clientX, e.clientY);
+      });
+      focalBox.addEventListener("pointerup", () => { isDraggingFocal = false; });
+
+      document.getElementById("ed-zoom").addEventListener("input", (e) => {
+        const slide = state.book.slides[state.currentIndex];
+        slide.encuadre = slide.encuadre || { x: 50, y: 50, zoom: 1 };
+        slide.encuadre.zoom = parseFloat(e.target.value);
+        updateFocalPreviewUI(slide);
+        refreshCurrentSlideInPlace();
+      });
+
+      // Revelado Dinámico (programar desbloqueo)
+      document.getElementById("ed-desbloqueo").addEventListener("input", (e) => {
+        state.book.desbloqueo = e.target.value;
+      });
+      document.getElementById("ed-bloqueo-msg").addEventListener("input", (e) => {
+        state.book.bloqueoMensaje = e.target.value;
+      });
+      document.getElementById("ed-preview-lock").addEventListener("click", () => {
+        if (!state.book.desbloqueo) {
+          const d = new Date(Date.now() + 60 * 60 * 1000);
+          const pad = n => String(n).padStart(2, "0");
+          state.book.desbloqueo = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+          document.getElementById("ed-desbloqueo").value = state.book.desbloqueo;
+        }
+        state.bypassLock = false;
+        closeDrawers();
+        checkLockState(true);
+      });
+      document.getElementById("ed-clear-lock").addEventListener("click", () => {
+        state.book.desbloqueo = "";
+        document.getElementById("ed-desbloqueo").value = "";
+        state.bypassLock = false;
+        checkLockState();
+        showToast("Bloqueo temporal eliminado");
       });
 
       // Agregar recuadro
@@ -2944,27 +3331,142 @@
       });
     }
 
-    function loadBookObject(bookObj) {
+    function checkLockState() {
+      clearInterval(state.lockTimer);
+      const lockEl = document.getElementById("lock-screen");
+      const rawDate = state.book.desbloqueo;
+      const targetTime = rawDate ? new Date(rawDate).getTime() : 0;
+
+      if (!rawDate || Number.isNaN(targetTime) || Date.now() >= targetTime || state.bypassLock) {
+        lockEl.classList.remove("is-active");
+        return;
+      }
+
+      // Poblar pantalla de espera
+      document.getElementById("lock-title").textContent = state.book.libro || "Reflexión";
+      document.getElementById("lock-msg").textContent =
+        state.book.bloqueoMensaje || "Esta reflexión estará disponible muy pronto para el tiempo de meditación.";
+      const coverImg = state.book.slides?.[0]?.imagen || "";
+      document.getElementById("lock-bg").style.backgroundImage = coverImg ? `url("${coverImg}")` : "none";
+
+      const formattedDate = new Date(targetTime).toLocaleString("es-ES", {
+        dateStyle: "long",
+        timeStyle: "short"
+      });
+      document.getElementById("lock-date-label").textContent = `Apertura programada: ${formattedDate}`;
+
+      // Botón discreto para autor si no es modo lector compartido
+      let bypassBtn = document.getElementById("btn-bypass-lock");
+      if (!state.isViewerMode && !bypassBtn) {
+        bypassBtn = document.createElement("button");
+        bypassBtn.id = "btn-bypass-lock";
+        bypassBtn.className = "btn-editorial-ghost";
+        bypassBtn.style.marginTop = "1.25rem";
+        bypassBtn.textContent = "Entrar como autor";
+        bypassBtn.addEventListener("click", () => {
+          state.bypassLock = true;
+          checkLockState();
+        });
+        lockEl.querySelector(".lock-card").appendChild(bypassBtn);
+      } else if (bypassBtn) {
+        bypassBtn.style.display = state.isViewerMode ? "none" : "inline-flex";
+      }
+
+      const updateTick = () => {
+        const diff = targetTime - Date.now();
+        if (diff <= 0) {
+          clearInterval(state.lockTimer);
+          if (!prefersReducedMotion && typeof gsap !== "undefined") {
+            gsap.to(lockEl, {
+              opacity: 0,
+              duration: 0.9,
+              ease: "power2.out",
+              onComplete: () => {
+                lockEl.classList.remove("is-active");
+                lockEl.style.opacity = "";
+              }
+            });
+          } else {
+            lockEl.classList.remove("is-active");
+          }
+          showToast("La reflexión ha sido revelada");
+          return;
+        }
+        const pad = n => String(Math.max(0, n)).padStart(2, "0");
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        document.getElementById("cd-days").textContent = pad(days);
+        document.getElementById("cd-hours").textContent = pad(hours);
+        document.getElementById("cd-mins").textContent = pad(mins);
+        document.getElementById("cd-secs").textContent = pad(secs);
+      };
+
+      updateTick();
+      lockEl.classList.add("is-active");
+      state.lockTimer = setInterval(updateTick, 1000);
+    }
+
+    function loadBookObject(bookObj, key = null) {
       state.book = structuredClone(bookObj);
+      if (key) state.currentBookKey = key;
       state.currentIndex = 0;
+      state.bypassLock = false;
       if (state.book.tema?.modo) setTheme(state.book.tema.modo);
+      document.getElementById("book-current-label").textContent = state.book.libro || "Libro";
       renderAllSlides();
       syncEditorFromCurrentSlide();
+      checkLockState();
     }
 
     /* ==========================================================================
        8. INICIALIZACIÓN Y EVENTOS DE INTERFAZ
        ========================================================================== */
     function init() {
+      const params = new URLSearchParams(window.location.search);
+      const urlModo = params.get("modo");
+      const urlShare = params.get("share");
+      const urlLibro = params.get("libro");
+
+      if (urlModo === "ver" || urlShare === "1") {
+        state.isViewerMode = true;
+        document.body.classList.add("is-viewer-mode");
+      }
+
+      if (urlLibro && BIBLIOTECA_LIBROS[urlLibro]) {
+        state.currentBookKey = urlLibro;
+        state.book = structuredClone(BIBLIOTECA_LIBROS[urlLibro]);
+        state.theme = state.book.tema?.modo || state.theme;
+        document.getElementById("book-current-label").textContent = state.book.libro;
+        document.querySelectorAll("[data-book]").forEach(el => {
+          const isSel = el.dataset.book === urlLibro;
+          el.classList.toggle("is-selected", isSel);
+          el.setAttribute("aria-selected", String(isSel));
+        });
+      }
+
       setTheme(state.theme);
       renderAllSlides();
       bindEditorEvents();
+      checkLockState();
 
       document.getElementById("btn-prev").addEventListener("click", prevSlide);
       document.getElementById("btn-next").addEventListener("click", nextSlide);
       document.getElementById("btn-autoplay").addEventListener("click", toggleAutoplay);
       document.getElementById("btn-present").addEventListener("click", () => togglePresentMode());
       document.getElementById("btn-fullscreen").addEventListener("click", toggleFullscreen);
+
+      document.getElementById("btn-share").addEventListener("click", async () => {
+        const base = `${window.location.origin}${window.location.pathname}`;
+        const shareUrl = `${base}?libro=${encodeURIComponent(state.currentBookKey)}&modo=ver`;
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          showToast("Enlace limpio copiado para compartir");
+        } catch {
+          prompt("Copia este enlace limpio para compartir:", shareUrl);
+        }
+      });
 
       drawerBackdropEl.addEventListener("click", closeDrawers);
 
@@ -2979,6 +3481,7 @@
       document.getElementById("btn-close-index").addEventListener("click", closeDrawers);
 
       document.getElementById("btn-editor").addEventListener("click", () => {
+        if (state.isViewerMode) return;
         closeAllDropdowns();
         closeDrawers();
         syncEditorFromCurrentSlide();
@@ -3008,8 +3511,7 @@
           const key = item.dataset.book;
           const selected = BIBLIOTECA_LIBROS[key];
           if (selected) {
-            loadBookObject(selected);
-            document.getElementById("book-current-label").textContent = selected.libro;
+            loadBookObject(selected, key);
             document.querySelectorAll("[data-book]").forEach(el => {
               const isSel = el === item;
               el.classList.toggle("is-selected", isSel);
