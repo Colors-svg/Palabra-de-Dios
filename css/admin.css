@@ -10,15 +10,16 @@ body.admin-body {
 }
 
 .studio-topbar {
-  height: 58px;
+  min-height: 58px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.25rem;
+  padding: 0.5rem 1.25rem;
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-subtle);
-  gap: 1rem;
+  gap: 0.85rem;
+  flex-wrap: wrap;
 }
 
 .studio-brand {
@@ -31,11 +32,12 @@ body.admin-body {
   font-size: 0.65rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 0.22rem 0.6rem;
+  padding: 0.24rem 0.65rem;
   border-radius: 999px;
   background: var(--accent-soft);
   color: var(--accent);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .studio-actions {
@@ -48,7 +50,8 @@ body.admin-body {
 .btn-studio {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 0.35rem;
   padding: 0.45rem 0.9rem;
   border-radius: 999px;
   border: 1px solid var(--border-subtle);
@@ -57,6 +60,7 @@ body.admin-body {
   font-weight: 500;
   color: var(--text-primary);
   text-decoration: none;
+  white-space: nowrap;
   transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
@@ -82,7 +86,7 @@ body.admin-body {
   flex: 1;
   min-height: 0;
   display: grid;
-  grid-template-columns: 275px 1fr 390px;
+  grid-template-columns: 290px minmax(0, 1fr) 390px;
 }
 
 /* --- Columna Izquierda: Lista de Diapositivas --- */
@@ -92,15 +96,26 @@ body.admin-body {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  overflow: hidden;
 }
 
 .deck-header {
-  padding: 0.85rem 1rem;
+  padding: 0.9rem 0.95rem;
   border-bottom: 1px solid var(--border-subtle);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.deck-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.deck-actions .btn-studio {
+  padding: 0.36rem 0.4rem;
+  font-size: 0.73rem;
 }
 
 .deck-list {
@@ -114,10 +129,10 @@ body.admin-body {
 
 .deck-item {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 0.65rem;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0.7rem;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0.55rem;
   border-radius: 12px;
   border: 1px solid var(--border-subtle);
   background: var(--bg-elevated);
@@ -138,11 +153,12 @@ body.admin-body {
 }
 .deck-thumb img { width: 100%; height: 100%; object-fit: cover; }
 
+.deck-meta { min-width: 0; }
 .deck-meta small {
   display: block; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
 }
 .deck-meta strong {
-  display: block; font-size: 0.82rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 145px;
+  display: block; font-size: 0.82rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 
 /* --- Columna Central: Canvas Interactivo --- */
@@ -226,6 +242,23 @@ body.admin-body {
 .device-frame .slides-stage {
   width: 100%;
   height: 100%;
+}
+
+.device-frame .slide-inner {
+  padding: 2rem 2.25rem;
+}
+
+.device-frame.frame-mobile .slide-inner {
+  padding: 1.75rem 1.25rem;
+}
+
+.device-frame.frame-mobile .verse-text {
+  font-size: 1.35rem;
+  line-height: 1.32;
+}
+
+.device-frame.frame-mobile .editorial-title {
+  font-size: 1.75rem;
 }
 
 /* Cursor interactivo en canvas */
