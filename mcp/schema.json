@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://colors-svg.github.io/Palabra-de-Dios/mcp/schema.json",
+  "title": "Palabra Visual — Esquema de Libro Bíblico",
+  "description": "Esquema oficial para crear o editar libros de reflexiones bíblicas en data/<libro>.json.",
+  "type": "object",
+  "required": ["libro", "version", "tema", "slides"],
+  "properties": {
+    "libro": {
+      "type": "string",
+      "description": "Nombre del libro o pasaje bíblico (ej. 'Oseas', 'Salmos 23')."
+    },
+    "version": {
+      "type": "string",
+      "description": "Versión bíblica literal usada (ej. 'Reina-Valera 1960')."
+    },
+    "desbloqueo": {
+      "type": "string",
+      "description": "Fecha y hora ISO local opcional para Revelado Dinámico (ej. '2026-11-29T10:00'). Vacío si está disponible."
+    },
+    "bloqueoMensaje": {
+      "type": "string",
+      "description": "Mensaje pastoral mostrado en la pantalla de cuenta regresiva antes del desbloqueo."
+    },
+    "tema": {
+      "type": "object",
+      "required": ["modo"],
+      "properties": {
+        "paleta": { "type": "string" },
+        "fuenteTitulo": { "type": "string", "default": "Cormorant Garamond" },
+        "fuenteTexto": { "type": "string", "default": "Inter" },
+        "modo": {
+          "type": "string",
+          "enum": ["oscuro", "claro", "sepia"],
+          "description": "oscuro = Noche profunda, claro = Amanecer cálido, sepia = Pergamino."
+        }
+      }
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["tipo", "layout", "animacion"],
+        "properties": {
+          "tipo": {
+            "type": "string",
+            "enum": ["portada", "versiculo", "reflexion", "imagen-completa", "dividida", "lista", "pregunta", "cierre"],
+            "description": "Plantilla visual de la diapositiva."
+          },
+          "layout": {
+            "type": "string",
+            "enum": ["centrado", "izquierda", "derecha", "inferior"],
+            "description": "Alineación del bloque principal de contenido."
+          },
+          "animacion": {
+            "type": "string",
+            "enum": ["fade", "slide-up", "zoom-lento", "parallax", "revelar-palabras"],
+            "description": "Animación GSAP de entrada. 'revelar-palabras' anima palabra por palabra el versículo."
+          },
+          "imagen": {
+            "type": "string",
+            "description": "URL HTTPS o ruta relativa local (ej. 'assets/images/oseas-desierto.jpg')."
+          },
+          "encuadre": {
+            "type": "object",
+            "description": "Punto focal y zoom para adaptar ilustraciones a móvil 9:16 y escritorio 16:9.",
+            "properties": {
+              "x": { "type": "number", "minimum": 0, "maximum": 100, "default": 50 },
+              "y": { "type": "number", "minimum": 0, "maximum": 100, "default": 50 },
+              "zoom": { "type": "number", "minimum": 1, "maximum": 1.6, "default": 1 }
+            }
+          },
+          "overlay": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.55,
+            "description": "Opacidad del velo oscuro sobre la imagen para garantizar contraste AA."
+          },
+          "offsetX": { "type": "number", "default": 0, "description": "Desplazamiento horizontal en px." },
+          "offsetY": { "type": "number", "default": 0, "description": "Desplazamiento vertical en px." },
+          "fontScale": { "type": "number", "minimum": 0.75, "maximum": 1.45, "default": 1, "description": "Multiplicador de tamaño de la cita." },
+          "titulo": { "type": "string" },
+          "subtitulo": { "type": "string" },
+          "versiculo": {
+            "type": "object",
+            "properties": {
+              "texto": { "type": "string", "description": "Texto bíblico fiel a la versión indicada." },
+              "referencia": { "type": "string", "description": "Libro capítulo:versículo (ej. 'Oseas 2:14')." }
+            }
+          },
+          "reflexion": { "type": "string" },
+          "recuadros": {
+            "type": "array",
+            "description": "Tarjetas con glassmorphism (en 'reflexion') o pasos numerados (en 'lista').",
+            "items": {
+              "type": "object",
+              "required": ["icono", "titulo", "texto"],
+              "properties": {
+                "icono": {
+                  "type": "string",
+                  "enum": ["corazon", "ancla", "luz", "camino", "agua", "libro", "semilla"],
+                  "description": "Icono SVG minimalista disponible en PalabraRenderer.ICONS."
+                },
+                "titulo": { "type": "string" },
+                "texto": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
