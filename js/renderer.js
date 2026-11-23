@@ -10,7 +10,17 @@
     camino: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg>',
     agua: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>',
     libro: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>',
-    semilla: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>'
+    semilla: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>',
+    balanza: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M3 14l2-7 2 7a2 2 0 0 1-4 0Z"/><path d="M17 14l2-7 2 7a2 2 0 0 1-4 0Z"/><path d="M8 21h8"/></svg>',
+    corona: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h18l-1.5-9-4.5 4-3-6-3 6-4.5-4L3 18Z"/><path d="M5 21h14"/></svg>',
+    escudo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>',
+    paloma: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h.01"/><path d="M3.4 18H12a8 8 0 0 0 8-8V7a4 4 0 0 0-7.28-2.3L2 20"/><path d="m20 7 2 .5-2 .5"/></svg>',
+    llama: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
+    reloj: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg>',
+    llave: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg>',
+    olivo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M12 12c-3.5 0-6-2.5-6-6 3.5 0 6 2.5 6 6Z"/><path d="M12 16c3.5 0 6-2.5 6-6-3.5 0-6 2.5-6 6Z"/></svg>',
+    monte: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>',
+    mano: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v4"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M6 14a6 6 0 0 0 12 0v-3"/></svg>'
   };
 
   const QUOTE_SVG = '<svg class="verse-quote-mark" viewBox="0 0 32 24" fill="currentColor" aria-hidden="true"><path d="M10.5 0C4.7 0 0 4.7 0 10.5V24h12V12H5.2c.4-3.6 3-6.4 6.5-6.9L10.5 0zm19 0C23.7 0 19 4.7 19 10.5V24h12V12h-6.8c.4-3.6 3-6.4 6.5-6.9L29.5 0z"/></svg>';
@@ -166,6 +176,35 @@
         <button class="btn-editorial-ghost anim-target" data-action="restart">
           <span>Volver al inicio</span>
         </button>
+      `;
+    } else if (tipo === "comparador" && slide.comparador) {
+      const c = slide.comparador;
+      const isHebrew = (c.idioma || "Hebreo").toLowerCase().includes("hebr");
+      const termClass = isHebrew ? "lexicon-term--hebrew" : "lexicon-term--greek";
+      innerHTML = `
+        ${slide.subtitulo ? `<span class="kicker anim-target">${escapeHTML(slide.subtitulo)}</span>` : ""}
+        ${slide.titulo ? `<h2 class="editorial-title anim-target">${escapeHTML(slide.titulo)}</h2>` : ""}
+        <div class="lexicon-compare anim-target" style="--split: 50%;">
+          <div class="compare-layer compare-layer--es">
+            <span class="lexicon-badge">Español &middot; ${escapeHTML(book.version || "RVR1960")}</span>
+            <div class="lexicon-term">${escapeHTML(c.espanol?.palabra || "")}</div>
+            ${c.espanol?.referencia ? `<div class="lexicon-translit">${escapeHTML(c.espanol.referencia)}</div>` : ""}
+            ${c.espanol?.texto ? `<p class="lexicon-desc">${escapeHTML(c.espanol.texto)}</p>` : ""}
+          </div>
+          <div class="compare-layer compare-layer--original">
+            <span class="lexicon-badge">Original &middot; ${escapeHTML(c.idioma || "Hebreo")}</span>
+            <div class="lexicon-term ${termClass}">${escapeHTML(c.original?.palabra || "")}</div>
+            ${c.original?.transliteracion ? `<div class="lexicon-translit">${escapeHTML(c.original.transliteracion)}</div>` : ""}
+            ${c.original?.texto ? `<p class="lexicon-desc">${escapeHTML(c.original.texto)}</p>` : ""}
+          </div>
+          <div class="compare-handle" role="slider" aria-label="Deslizar para comparar español y texto original" aria-valuemin="5" aria-valuemax="95" aria-valuenow="50" tabindex="0">
+            <div class="compare-knob" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 3 12 9 6" opacity="0"/><path d="M8 9l-3 3 3 3M16 9l3 3-3 3"/></svg>
+            </div>
+          </div>
+        </div>
+        <span class="lexicon-hint anim-target">Desliza horizontalmente para comparar</span>
+        ${slide.reflexion ? `<p class="reflexion-body anim-target">${escapeHTML(slide.reflexion)}</p>` : ""}
       `;
     } else {
       innerHTML = `

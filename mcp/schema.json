@@ -45,7 +45,7 @@
         "properties": {
           "tipo": {
             "type": "string",
-            "enum": ["portada", "versiculo", "reflexion", "imagen-completa", "dividida", "lista", "pregunta", "cierre"],
+            "enum": ["portada", "versiculo", "reflexion", "imagen-completa", "dividida", "lista", "pregunta", "comparador", "cierre"],
             "description": "Plantilla visual de la diapositiva."
           },
           "layout": {
@@ -100,7 +100,7 @@
               "properties": {
                 "icono": {
                   "type": "string",
-                  "enum": ["corazon", "ancla", "luz", "camino", "agua", "libro", "semilla"],
+                  "enum": ["corazon", "ancla", "luz", "camino", "agua", "libro", "semilla", "balanza", "corona", "escudo", "paloma", "llama", "reloj", "llave", "olivo", "monte", "mano"],
                   "description": "Icono SVG minimalista disponible en PalabraRenderer.ICONS."
                 },
                 "titulo": { "type": "string" },

@@ -66,7 +66,7 @@
       "reflexion": "En la cultura del pacto, la dote definía el valor de la alianza. Aquí Dios mismo aporta los cinco pilares que sostienen la relación.",
       "recuadros": [
         {
-          "icono": "ancla",
+          "icono": "balanza",
           "titulo": "Justicia y Juicio",
           "texto": "Un vínculo recto, transparente y firme que protege al vulnerable.",
           "detalle": "En Oseas 2:19, justicia (tsedeq) y juicio (mishpat) no son palabras frías de tribunal, sino la promesa de un trato recto y protector.\n\n• Dios no improvisa ni abandona su compromiso.\n• La relación se reconstruye sobre verdad, no sobre apariencias."
@@ -118,6 +118,30 @@
       "layout": "centrado"
     },
     {
+      "tipo": "comparador",
+      "imagen": "",
+      "overlay": 0,
+      "titulo": "El corazón del pacto",
+      "subtitulo": "Palabra clave en Oseas 6:6",
+      "comparador": {
+        "idioma": "Hebreo",
+        "espanol": {
+          "palabra": "Misericordia",
+          "referencia": "Oseas 6:6",
+          "texto": "«Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.»"
+        },
+        "original": {
+          "palabra": "חֶסֶד",
+          "transliteracion": "jesed",
+          "texto": "Amor leal, bondad firme del pacto, compasión que no abandona aunque el otro haya fallado."
+        }
+      },
+      "reflexion": "Oseas no pide simples emociones pasajeras; jesed es la lealtad constante del corazón hacia Dios y hacia el prójimo.",
+      "recuadros": [],
+      "animacion": "fade",
+      "layout": "centrado"
+    },
+    {
       "tipo": "reflexion",
       "imagen": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80",
       "overlay": 0.65,
@@ -130,13 +154,13 @@
       "reflexion": "El capítulo 11 revela el latido más íntimo de Dios: un padre que enseñó a caminar a su hijo y cuyo corazón se conmueve antes de destruir.",
       "recuadros": [
         {
-          "icono": "camino",
+          "icono": "mano",
           "titulo": "Enseñar a andar",
           "texto": "Dios recuerda la infancia de Israel: sostener de los brazos con paciencia.",
           "detalle": "Oseas 11:3 dice literalmente: \"Yo con todo eso enseñaba a andar al mismo Efraín, tomándole de los brazos; y no conoció que yo le cuidaba.\"\n\n• Imagen paternal: Dios no exige que el niño corra solo; se agacha, lo toma de los brazos y sostiene sus primeros pasos.\n• Aplicación concreta: incluso en etapas donde no percibimos su mano, su cuidado nos ha estado sosteniendo."
         },
         {
-          "icono": "agua",
+          "icono": "llama",
           "titulo": "Compasión encendida",
           "texto": "«¿Cómo podré abandonarte, oh Efraín? Mi corazón se conmueve dentro de mí» (11:8).",
           "detalle": "En Oseas 11:8-9 ocurre uno de los momentos más conmovedores del Antiguo Testamento: el corazón de Dios se conmueve antes de ejecutar el juicio.\n\n\"Porque Dios soy, y no hombre, el Santo en medio de ti.\"\nLa santidad de Dios aquí se manifiesta como compasión que no destruye por impulso."

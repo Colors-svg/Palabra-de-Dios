@@ -15,10 +15,10 @@ const DATA_DIR = path.join(ROOT_DIR, "data");
 const ASSETS_IMG_DIR = path.join(ROOT_DIR, "assets", "images");
 const CATALOG_PATH = path.join(DATA_DIR, "libros.json");
 
-const VALID_TIPOS = ["portada", "versiculo", "reflexion", "imagen-completa", "dividida", "lista", "pregunta", "cierre"];
+const VALID_TIPOS = ["portada", "versiculo", "reflexion", "imagen-completa", "dividida", "lista", "pregunta", "comparador", "cierre"];
 const VALID_LAYOUTS = ["centrado", "izquierda", "derecha", "inferior"];
 const VALID_ANIMS = ["fade", "slide-up", "zoom-lento", "parallax", "revelar-palabras"];
-const VALID_ICONS = ["corazon", "ancla", "luz", "camino", "agua", "libro", "semilla"];
+const VALID_ICONS = ["corazon", "ancla", "luz", "camino", "agua", "libro", "semilla", "balanza", "corona", "escudo", "paloma", "llama", "reloj", "llave", "olivo", "monte", "mano"];
 const VALID_MODES = ["oscuro", "claro", "sepia"];
 
 function readJSON(filePath) {

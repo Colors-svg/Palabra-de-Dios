@@ -126,7 +126,7 @@
   function updateChrome() {
     const total = state.book.slides.length || 1;
     const pad = n => String(n).padStart(2, "0");
-    counterEl.textContent = `${pad(state.currentIndex + 1)} / ${pad(total)}`;
+    if (counterEl) counterEl.textContent = `${pad(state.currentIndex + 1)} / ${pad(total)}`;
 
     const pct = total > 1 ? (state.currentIndex / (total - 1)) * 100 : 100;
     progressFillEl.style.width = `${pct}%`;
@@ -267,12 +267,33 @@
       stageEl.innerHTML = `<div style="margin:auto;text-align:center;padding:2rem;"><h2>No se pudo cargar la lectura</h2><p style="opacity:0.7;margin-top:0.5rem;">Verifica que exista <code>data/${escapeHTML(key)}.json</code>.</p></div>`;
     }
 
-    document.getElementById("btn-prev").addEventListener("click", prevSlide);
-    document.getElementById("btn-next").addEventListener("click", nextSlide);
-    document.getElementById("btn-fullscreen").addEventListener("click", () => {
+    document.getElementById("btn-prev")?.addEventListener("click", prevSlide);
+    document.getElementById("btn-next")?.addEventListener("click", nextSlide);
+    document.getElementById("btn-fullscreen")?.addEventListener("click", () => {
       if (!document.fullscreenElement) document.documentElement.requestFullscreen?.().catch(() => {});
       else document.exitFullscreen?.().catch(() => {});
     });
+
+    // Deslizadera interactiva Español <-> Original (Hebreo / Griego)
+    let activeCompare = null;
+    const updateCompareSplit = (el, clientX) => {
+      const rect = el.getBoundingClientRect();
+      const pct = Math.max(5, Math.min(95, ((clientX - rect.left) / rect.width) * 100));
+      el.style.setProperty("--split", `${pct.toFixed(1)}%`);
+      el.querySelector(".compare-handle")?.setAttribute("aria-valuenow", Math.round(pct));
+    };
+    stageEl.addEventListener("pointerdown", (e) => {
+      const comp = e.target.closest(".lexicon-compare");
+      if (!comp) return;
+      activeCompare = comp;
+      comp.setPointerCapture?.(e.pointerId);
+      updateCompareSplit(comp, e.clientX);
+    });
+    stageEl.addEventListener("pointermove", (e) => {
+      if (activeCompare) updateCompareSplit(activeCompare, e.clientX);
+    });
+    stageEl.addEventListener("pointerup", () => { activeCompare = null; });
+    stageEl.addEventListener("pointercancel", () => { activeCompare = null; });
 
     document.getElementById("btn-index").addEventListener("click", () => {
       closeAllDropdowns();
