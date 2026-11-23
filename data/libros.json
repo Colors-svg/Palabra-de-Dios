@@ -1,0 +1,23 @@
+[
+  {
+    "key": "oseas",
+    "titulo": "Oseas",
+    "archivo": "data/oseas.json",
+    "version": "Reina-Valera 1960",
+    "slides": 10
+  },
+  {
+    "key": "salmos23",
+    "titulo": "Salmos 23",
+    "archivo": "data/salmos23.json",
+    "version": "Reina-Valera 1960",
+    "slides": 8
+  },
+  {
+    "key": "filipenses4",
+    "titulo": "Filipenses 4",
+    "archivo": "data/filipenses4.json",
+    "version": "Reina-Valera 1960",
+    "slides": 8
+  }
+]

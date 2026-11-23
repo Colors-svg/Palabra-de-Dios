@@ -1,0 +1,159 @@
+{
+  "libro": "Salmos 23",
+  "version": "Reina-Valera 1960",
+  "tema": {
+    "paleta": "pergamino",
+    "fuenteTitulo": "Cormorant Garamond",
+    "fuenteTexto": "Inter",
+    "modo": "sepia"
+  },
+  "slides": [
+    {
+      "tipo": "portada",
+      "imagen": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.55,
+      "titulo": "Salmos 23",
+      "subtitulo": "El Pastor que camina junto a nosotros en la abundancia y en la sombra.",
+      "versiculo": {
+        "texto": "Jehová es mi pastor; nada me faltará.",
+        "referencia": "Salmos 23:1"
+      },
+      "reflexion": "Un salmo breve que ha sostenido generaciones enteras en tiempos de descanso y de incertidumbre.",
+      "recuadros": [],
+      "animacion": "fade",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "versiculo",
+      "imagen": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.55,
+      "titulo": "Descanso",
+      "subtitulo": "El ritmo de la confianza",
+      "versiculo": {
+        "texto": "En lugares de delicados pastos me hará descansar; junto a aguas de reposo me pastoreará.",
+        "referencia": "Salmos 23:2"
+      },
+      "reflexion": "",
+      "recuadros": [],
+      "animacion": "revelar-palabras",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "dividida",
+      "imagen": "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1400&q=80",
+      "overlay": 0.25,
+      "titulo": "El alma restaurada",
+      "subtitulo": "Conducción por su nombre",
+      "versiculo": {
+        "texto": "Confortará mi alma; me guiará por sendas de justicia por amor de su nombre.",
+        "referencia": "Salmos 23:3"
+      },
+      "reflexion": "El verbo 'confortar' evoca devolver el aliento y traer de vuelta al camino. La guía de Dios nace de su propio carácter fiel.",
+      "recuadros": [],
+      "animacion": "slide-up",
+      "layout": "izquierda"
+    },
+    {
+      "tipo": "versiculo",
+      "imagen": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.65,
+      "titulo": "En el valle oscuro",
+      "subtitulo": "Presencia en lugar de explicación",
+      "versiculo": {
+        "texto": "Aunque ande en valle de sombra de muerte, no temeré mal alguno, porque tú estarás conmigo; tu vara y tu cayado me infundirán aliento.",
+        "referencia": "Salmos 23:4"
+      },
+      "reflexion": "Aquí el salmo cambia de hablar 'de' Dios a hablar 'con' Dios: 'tú estarás conmigo'.",
+      "recuadros": [],
+      "animacion": "revelar-palabras",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "reflexion",
+      "imagen": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.7,
+      "titulo": "Mesa en medio del conflicto",
+      "subtitulo": "De pastor a anfitrión",
+      "versiculo": {
+        "texto": "Aderezas mesa delante de mí en presencia de mis angustiadores; unges mi cabeza con aceite; mi copa está rebosando.",
+        "referencia": "Salmos 23:5"
+      },
+      "reflexion": "La imagen cambia del campo abierto a la hospitalidad de una casa segura, donde el huésped es honrado.",
+      "recuadros": [
+        {
+          "icono": "ancla",
+          "titulo": "Mesa preparada",
+          "texto": "Paz y provisión incluso cuando las circunstancias adversas aún rodean."
+        },
+        {
+          "icono": "agua",
+          "titulo": "Copa rebosando",
+          "texto": "Generosidad que excede la simple supervivencia."
+        }
+      ],
+      "animacion": "slide-up",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "lista",
+      "imagen": "",
+      "overlay": 0,
+      "titulo": "Tres escenas del salmo",
+      "subtitulo": "Un viaje desde la pradera hasta la casa eterna",
+      "versiculo": {
+        "texto": "",
+        "referencia": ""
+      },
+      "reflexion": "",
+      "recuadros": [
+        {
+          "icono": "semilla",
+          "titulo": "1. La pradera (vv. 1–3)",
+          "texto": "Provisión diaria, aguas tranquilas y restauración interior."
+        },
+        {
+          "icono": "camino",
+          "titulo": "2. El valle (v. 4)",
+          "texto": "Acompañamiento cercano cuando la oscuridad se hace real."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "3. La casa (vv. 5–6)",
+          "texto": "Hospitalidad divina, bien y misericordia que nos siguen todos los días."
+        }
+      ],
+      "animacion": "slide-up",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "pregunta",
+      "imagen": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.62,
+      "titulo": "Pregunta para el silencio",
+      "subtitulo": "Descansar en la presencia",
+      "versiculo": {
+        "texto": "Ciertamente el bien y la misericordia me seguirán todos los días de mi vida, y en la casa de Jehová moraré por largos días.",
+        "referencia": "Salmos 23:6"
+      },
+      "reflexion": "¿En qué área de tu semana estás intentando ser tu propio pastor, olvidando que alguien camina delante de ti?",
+      "recuadros": [],
+      "animacion": "fade",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "cierre",
+      "imagen": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.58,
+      "titulo": "Nada me faltará",
+      "subtitulo": "Oración final",
+      "versiculo": {
+        "texto": "Jehová es mi pastor; nada me faltará.",
+        "referencia": "Salmos 23:1"
+      },
+      "reflexion": "Buen Pastor, enséñanos a detenernos junto a tus aguas de reposo y a confiar en tu compañía cuando atravesemos valles de sombra. Amén.",
+      "recuadros": [],
+      "animacion": "fade",
+      "layout": "centrado"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="oscuro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Palabra Visual — Estudio de Edición</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+  <!-- Barra superior del Estudio -->
+  <header class="studio-topbar">
+    <div class="studio-brand">
+      <strong style="font-family:var(--font-display); font-size:1.35rem; font-weight:500;">Palabra Visual</strong>
+      <span class="studio-badge">Estudio</span>
+      <select class="field-select" id="st-book-select" style="width:auto; min-width:150px; padding:0.35rem 2rem 0.35rem 0.75rem;"></select>
+    </div>
+
+    <div class="studio-actions">
+      <button class="btn-studio" id="st-import-btn" type="button">Importar JSON</button>
+      <input type="file" id="st-import-file" accept=".json,application/json" style="display:none" />
+      <button class="btn-studio" id="st-export-json" type="button">Descargar JSON</button>
+      <button class="btn-studio btn-studio--primary" id="st-open-viewer" type="button">Abrir Visor Público</button>
+    </div>
+  </header>
+
+  <!-- Espacio de trabajo de 3 columnas -->
+  <main class="studio-workspace">
+    <!-- 1. Izquierda: Lista de diapositivas con Drag & Drop -->
+    <aside class="studio-deck" aria-label="Diapositivas">
+      <div class="deck-header">
+        <span style="font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); font-weight:600;">Diapositivas</span>
+        <div style="display:flex; gap:0.3rem;">
+          <button class="btn-studio" id="st-add-slide" style="padding:0.28rem 0.6rem; font-size:0.72rem;">+ Nueva</button>
+          <button class="btn-studio" id="st-dup-slide" style="padding:0.28rem 0.6rem; font-size:0.72rem;">Duplicar</button>
+          <button class="btn-studio" id="st-del-slide" style="padding:0.28rem 0.6rem; font-size:0.72rem;">Borrar</button>
+        </div>
+      </div>
+      <div class="deck-list" id="deck-list"></div>
+    </aside>
+
+    <!-- 2. Centro: Canvas interactivo (Móvil 9:16 / Escritorio 16:9 + Arrastrar) -->
+    <section class="studio-canvas-area" aria-label="Lienzo de edición">
+      <div class="canvas-toolbar">
+        <span id="canvas-slide-label" style="font-size:0.78rem; color:var(--text-secondary);">Diapositiva 1</span>
+
+        <div class="segmented" role="group" aria-label="Modo de arrastre en lienzo">
+          <button class="seg-btn is-active" data-drag-mode="image" type="button">Mover Imagen</button>
+          <button class="seg-btn" data-drag-mode="text" type="button">Mover Texto</button>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <div class="segmented" role="group" aria-label="Formato de vista">
+            <button class="seg-btn is-active" data-frame="desktop" type="button">16:9</button>
+            <button class="seg-btn" data-frame="mobile" type="button">Móvil 9:16</button>
+          </div>
+          <button class="btn-studio" id="st-reset-pos" type="button" style="padding:0.32rem 0.7rem; font-size:0.72rem;">Centrar</button>
+        </div>
+      </div>
+
+      <div class="canvas-viewport">
+        <div class="device-frame frame-desktop" id="device-frame" data-drag-mode="image">
+          <div class="slides-stage" id="studio-stage"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Derecha: Inspector con pestañas -->
+    <aside class="studio-inspector" aria-label="Inspector de propiedades">
+      <div class="inspector-tabs" role="tablist">
+        <button class="tab-btn is-active" data-tab="escena" type="button">Escena</button>
+        <button class="tab-btn" data-tab="texto" type="button">Texto</button>
+        <button class="tab-btn" data-tab="publicar" type="button">Publicar</button>
+      </div>
+
+      <div class="inspector-body">
+        <!-- TAB 1: Escena e Imágenes -->
+        <div class="tab-panel is-active" id="tab-escena">
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="st-tipo">Tipo</label>
+              <select class="field-select" id="st-tipo">
+                <option value="portada">portada</option>
+                <option value="versiculo">versiculo</option>
+                <option value="reflexion">reflexion</option>
+                <option value="imagen-completa">imagen-completa</option>
+                <option value="dividida">dividida</option>
+                <option value="lista">lista</option>
+                <option value="pregunta">pregunta</option>
+                <option value="cierre">cierre</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-layout">Alineación</label>
+              <select class="field-select" id="st-layout">
+                <option value="centrado">centrado</option>
+                <option value="izquierda">izquierda</option>
+                <option value="derecha">derecha</option>
+                <option value="inferior">inferior</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="st-anim">Animación</label>
+              <select class="field-select" id="st-anim">
+                <option value="revelar-palabras">revelar-palabras</option>
+                <option value="fade">fade</option>
+                <option value="slide-up">slide-up</option>
+                <option value="zoom-lento">zoom-lento</option>
+                <option value="parallax">parallax</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-overlay">Overlay (<span id="st-overlay-val">0.55</span>)</label>
+              <input class="field-range" id="st-overlay" type="range" min="0" max="1" step="0.05" />
+            </div>
+          </div>
+
+          <div class="studio-card">
+            <span class="field-label" style="color:var(--accent); font-weight:600;">Carga rápida de imagen</span>
+            <div class="image-dropzone" id="st-dropzone">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              <p>Arrastra una imagen aquí o haz clic</p>
+              <small>También puedes pegar una URL o ruta en assets/images/</small>
+              <input type="file" id="st-imagen-file" accept="image/*" style="display:none" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-imagen">URL o ruta (ej. assets/images/oseas-1.jpg)</label>
+              <input class="field-input" id="st-imagen" type="text" placeholder="https://... o assets/images/..." />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-zoom">Zoom (<span id="st-zoom-val">1.00</span>x) &middot; Foco: <span id="st-focal-readout">50%, 50%</span></label>
+              <input class="field-range" id="st-zoom" type="range" min="1" max="1.6" step="0.02" value="1" />
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: Texto, Cita Bíblica y Recuadros -->
+        <div class="tab-panel" id="tab-texto">
+          <div class="field-group">
+            <label class="field-label" for="st-titulo">Título</label>
+            <input class="field-input" id="st-titulo" type="text" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="st-subtitulo">Subtítulo / Kicker</label>
+            <input class="field-input" id="st-subtitulo" type="text" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="st-font-scale">Tamaño de cita (<span id="st-font-scale-val">1.00</span>x)</label>
+            <input class="field-range" id="st-font-scale" type="range" min="0.75" max="1.45" step="0.05" value="1" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="st-versiculo-texto">Versículo (texto fiel)</label>
+            <textarea class="field-textarea" id="st-versiculo-texto"></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="st-versiculo-ref">Referencia</label>
+            <input class="field-input" id="st-versiculo-ref" type="text" />
+          </div>
+          <div class="field-group">
+            <label class="field-label" for="st-reflexion">Reflexión</label>
+            <textarea class="field-textarea" id="st-reflexion"></textarea>
+          </div>
+          <div class="field-group">
+            <span class="field-label" style="color:var(--accent); font-weight:600;">Recuadros / Puntos</span>
+            <div id="st-recuadros-list" style="display:flex; flex-direction:column; gap:0.65rem;"></div>
+            <button class="btn-studio" id="st-add-recuadro" type="button" style="justify-content:center;">+ Agregar recuadro</button>
+          </div>
+        </div>
+
+        <!-- TAB 3: Publicación y Revelado Dinámico -->
+        <div class="tab-panel" id="tab-publicar">
+          <div class="studio-card">
+            <span class="field-label" style="color:var(--accent); font-weight:600;">Datos del Libro</span>
+            <div class="field-group">
+              <label class="field-label" for="st-book-title">Nombre del libro</label>
+              <input class="field-input" id="st-book-title" type="text" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-book-version">Versión bíblica</label>
+              <input class="field-input" id="st-book-version" type="text" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-book-theme">Tema predeterminado</label>
+              <select class="field-select" id="st-book-theme">
+                <option value="oscuro">Noche profunda (oscuro)</option>
+                <option value="claro">Amanecer cálido (claro)</option>
+                <option value="sepia">Pergamino (sepia)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="studio-card">
+            <span class="field-label" style="color:var(--accent); font-weight:600;">Revelado Dinámico (Bloqueo Temporal)</span>
+            <div class="field-group">
+              <label class="field-label" for="st-desbloqueo">Fecha y hora de apertura</label>
+              <input class="field-input" id="st-desbloqueo" type="datetime-local" />
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="st-bloqueo-msg">Mensaje de espera</label>
+              <textarea class="field-textarea" id="st-bloqueo-msg" placeholder="Esta reflexión estará disponible al iniciar..."></textarea>
+            </div>
+            <button class="btn-studio" id="st-clear-lock" type="button" style="justify-content:center;">Quitar bloqueo</button>
+          </div>
+
+          <p style="font-size:0.75rem; color:var(--text-muted); line-height:1.5;">
+            Cuando termines de editar, pulsa <strong>Descargar JSON</strong> arriba y reemplaza el archivo correspondiente en la carpeta <code>data/</code> de tu repositorio.
+          </p>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/renderer.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
