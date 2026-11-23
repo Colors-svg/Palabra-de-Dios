@@ -257,7 +257,8 @@
       const res = await fetch(`data/${key}.json`);
       if (!res.ok) throw new Error("Libro no encontrado");
       state.book = await res.json();
-      document.getElementById("book-current-label").textContent = state.book.libro || key;
+      const labelEl = document.getElementById("book-current-label");
+      if (labelEl) labelEl.textContent = state.book.libro || key;
       document.title = `${state.book.libro || key} — Palabra Visual`;
       if (state.book.tema?.modo) setTheme(state.book.tema.modo);
       renderAllSlides();
