@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="css/theme.css" />
   <link rel="stylesheet" href="css/admin.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body class="admin-body">
   <!-- Barra superior del Estudio -->
@@ -25,6 +26,7 @@
       <button class="btn-studio" id="st-import-btn" type="button">Importar JSON</button>
       <input type="file" id="st-import-file" accept=".json,application/json" style="display:none" />
       <button class="btn-studio" id="st-export-json" type="button">Descargar JSON</button>
+      <button class="btn-studio" id="st-preview-btn" type="button">Vista Previa</button>
       <button class="btn-studio btn-studio--primary" id="st-open-viewer" type="button">Abrir Visor Público</button>
     </div>
   </header>
@@ -218,6 +220,40 @@
       </div>
     </aside>
   </main>
+
+  <!-- Vista Previa Independiente (en vivo, sin depender del visor público) -->
+  <div class="admin-preview-overlay" id="admin-preview-overlay" aria-hidden="true">
+    <div class="admin-preview-bar">
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <span class="studio-badge">Vista Previa en Vivo</span>
+        <span id="pv-counter" style="font-size:0.78rem; color:var(--text-secondary);">1 / 18</span>
+      </div>
+      <div class="segmented" role="group" aria-label="Formato de vista previa">
+        <button class="seg-btn is-active" id="pv-mode-desktop" type="button">Pantalla completa</button>
+        <button class="seg-btn" id="pv-mode-mobile" type="button">Móvil 9:16</button>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.45rem;">
+        <button class="btn-studio" id="pv-prev" type="button">Anterior</button>
+        <button class="btn-studio" id="pv-next" type="button">Siguiente</button>
+        <button class="btn-studio btn-studio--primary" id="pv-close" type="button">Cerrar</button>
+      </div>
+    </div>
+    <div class="admin-preview-stage" id="admin-preview-stage">
+      <div class="slides-stage" id="pv-slides-stage"></div>
+    </div>
+  </div>
+
+  <!-- Modal de detalle desplegable para probar recuadros en Vista Previa -->
+  <div class="detail-modal-backdrop" id="detail-modal-backdrop" aria-hidden="true">
+    <div class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-modal-title">
+      <button class="icon-btn detail-modal-close" id="detail-modal-close" aria-label="Cerrar ventana">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="recuadro-icon" id="detail-modal-icon" aria-hidden="true"></div>
+      <h3 class="detail-modal-title" id="detail-modal-title"></h3>
+      <div class="detail-modal-body" id="detail-modal-body"></div>
+    </div>
+  </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 

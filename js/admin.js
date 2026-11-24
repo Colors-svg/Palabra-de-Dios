@@ -434,7 +434,113 @@
       window.open(`${encodeURIComponent(state.currentKey)}.html`, "_blank");
     });
 
+    bindAdminPreview();
     bindCanvasDirectDrag();
+  }
+
+  function bindAdminPreview() {
+    const overlay = document.getElementById("admin-preview-overlay");
+    const pvStage = document.getElementById("pv-slides-stage");
+    const pvWrap = document.getElementById("admin-preview-stage");
+    const pvCounter = document.getElementById("pv-counter");
+    const detailBackdrop = document.getElementById("detail-modal-backdrop");
+    let pvIdx = 0;
+
+    const renderPv = () => {
+      const slides = state.book?.slides || [];
+      if (!slides.length) return;
+      pvIdx = Math.max(0, Math.min(slides.length - 1, pvIdx));
+      pvCounter.textContent = `${pvIdx + 1} / ${slides.length}`;
+      pvStage.innerHTML = buildSlideHTML(slides[pvIdx], pvIdx, state.book, pvIdx);
+      const slideEl = pvStage.querySelector(".slide");
+      if (slideEl) {
+        slideEl.classList.add("is-active");
+        slideEl.style.opacity = "1";
+        slideEl.style.visibility = "visible";
+        window.PalabraRenderer.animateSlideContent(slideEl, slides[pvIdx], false);
+      }
+    };
+
+    const openPv = () => {
+      pvIdx = state.currentIndex;
+      overlay.classList.add("is-open");
+      overlay.setAttribute("aria-hidden", "false");
+      renderPv();
+    };
+
+    const closePv = () => {
+      overlay.classList.remove("is-open");
+      overlay.setAttribute("aria-hidden", "true");
+      detailBackdrop?.classList.remove("is-open");
+    };
+
+    document.getElementById("st-preview-btn").addEventListener("click", openPv);
+    document.getElementById("pv-close").addEventListener("click", closePv);
+    document.getElementById("pv-prev").addEventListener("click", () => { if (pvIdx > 0) { pvIdx--; renderPv(); } });
+    document.getElementById("pv-next").addEventListener("click", () => {
+      if (pvIdx < state.book.slides.length - 1) { pvIdx++; renderPv(); }
+    });
+
+    document.getElementById("pv-mode-desktop").addEventListener("click", (e) => {
+      e.target.classList.add("is-active");
+      document.getElementById("pv-mode-mobile").classList.remove("is-active");
+      pvWrap.classList.remove("is-mobile-sim");
+    });
+    document.getElementById("pv-mode-mobile").addEventListener("click", (e) => {
+      e.target.classList.add("is-active");
+      document.getElementById("pv-mode-desktop").classList.remove("is-active");
+      pvWrap.classList.add("is-mobile-sim");
+    });
+
+    // Comparador y modales dentro de Vista Previa
+    let pvCompare = null;
+    pvStage.addEventListener("pointerdown", (e) => {
+      const comp = e.target.closest(".lexicon-compare");
+      if (comp) {
+        pvCompare = comp;
+        comp.setPointerCapture?.(e.pointerId);
+        const r = comp.getBoundingClientRect();
+        const pct = Math.max(5, Math.min(95, ((e.clientX - r.left) / r.width) * 100));
+        comp.style.setProperty("--split", `${pct.toFixed(1)}%`);
+        return;
+      }
+      const det = e.target.closest("[data-detail-slide]");
+      if (det) {
+        const item = state.book.slides[Number(det.dataset.detailSlide)]?.recuadros?.[Number(det.dataset.detailRec)];
+        if (item) {
+          document.getElementById("detail-modal-icon").innerHTML = ICONS[item.icono] || ICONS.luz;
+          document.getElementById("detail-modal-title").textContent = item.titulo || "";
+          document.getElementById("detail-modal-body").textContent = item.detalle || item.texto || "";
+          detailBackdrop.classList.add("is-open");
+        }
+        return;
+      }
+      const act = e.target.closest("[data-action]");
+      if (act?.dataset.action === "next-slide" && pvIdx < state.book.slides.length - 1) { pvIdx++; renderPv(); }
+      if (act?.dataset.action === "restart") { pvIdx = 0; renderPv(); }
+    });
+    pvStage.addEventListener("pointermove", (e) => {
+      if (!pvCompare) return;
+      const r = pvCompare.getBoundingClientRect();
+      const pct = Math.max(5, Math.min(95, ((e.clientX - r.left) / r.width) * 100));
+      pvCompare.style.setProperty("--split", `${pct.toFixed(1)}%`);
+    });
+    pvStage.addEventListener("pointerup", () => { pvCompare = null; });
+
+    document.getElementById("detail-modal-close")?.addEventListener("click", () => detailBackdrop.classList.remove("is-open"));
+    detailBackdrop?.addEventListener("click", (e) => { if (e.target === detailBackdrop) detailBackdrop.classList.remove("is-open"); });
+
+    document.addEventListener("keydown", (e) => {
+      if (!overlay.classList.contains("is-open")) return;
+      if (e.key === "Escape") {
+        if (detailBackdrop.classList.contains("is-open")) detailBackdrop.classList.remove("is-open");
+        else closePv();
+      } else if (e.key === "ArrowRight") {
+        if (pvIdx < state.book.slides.length - 1) { pvIdx++; renderPv(); }
+      } else if (e.key === "ArrowLeft") {
+        if (pvIdx > 0) { pvIdx--; renderPv(); }
+      }
+    });
   }
 
   async function loadBook(key) {
