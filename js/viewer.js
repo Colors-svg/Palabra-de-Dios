@@ -72,22 +72,83 @@
     detailBackdropEl.setAttribute("aria-hidden", "true");
   }
 
+  let lockParticleRaf = null;
+
+  function stopLockParticles() {
+    if (lockParticleRaf) {
+      cancelAnimationFrame(lockParticleRaf);
+      lockParticleRaf = null;
+    }
+  }
+
+  function startLockParticles() {
+    stopLockParticles();
+    if (prefersReducedMotion) return;
+    const canvas = document.getElementById("lock-particles");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const count = window.innerWidth < 640 ? 28 : 48;
+    let w = 0, h = 0;
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth || window.innerWidth;
+      h = canvas.clientHeight || window.innerHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+
+    const particles = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: 0.8 + Math.random() * 1.9,
+      vy: 0.18 + Math.random() * 0.42,
+      phase: Math.random() * Math.PI * 2,
+      alpha: 0.18 + Math.random() * 0.62
+    }));
+
+    const frame = () => {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of particles) {
+        p.y -= p.vy;
+        p.phase += 0.012;
+        const px = p.x + Math.sin(p.phase) * 10;
+        if (p.y < -10) {
+          p.y = h + 10;
+          p.x = Math.random() * w;
+        }
+        ctx.beginPath();
+        ctx.arc(px, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+        ctx.fill();
+      }
+      lockParticleRaf = requestAnimationFrame(frame);
+    };
+    lockParticleRaf = requestAnimationFrame(frame);
+  }
+
   function checkLockState() {
     clearInterval(state.lockTimer);
+    stopLockParticles();
     const lockEl = document.getElementById("lock-screen");
     const rawDate = state.book?.desbloqueo;
     const targetTime = rawDate ? new Date(rawDate).getTime() : 0;
 
     if (!rawDate || Number.isNaN(targetTime) || Date.now() >= targetTime) {
       lockEl.classList.remove("is-active");
+      document.title = `${state.book?.libro || "Palabra Visual"} — Palabra Visual`;
       return;
     }
 
-    document.getElementById("lock-title").textContent = state.book.libro || "Reflexión";
-    document.getElementById("lock-msg").textContent =
-      state.book.bloqueoMensaje || "Esta reflexión estará disponible muy pronto para el tiempo de meditación.";
-    const coverImg = state.book.slides?.[0]?.imagen || "";
-    document.getElementById("lock-bg").style.backgroundImage = coverImg ? `url("${coverImg}")` : "none";
+    // No revelar el nombre de la charla ni el diseño mientras esté bloqueado
+    document.title = "Próxima lectura";
+    const msgEl = document.getElementById("lock-msg");
+    if (msgEl) {
+      msgEl.textContent = state.book.bloqueoMensaje || "Este espacio se abrirá al cumplirse el tiempo.";
+    }
 
     const formattedDate = new Date(targetTime).toLocaleString("es-ES", { dateStyle: "long", timeStyle: "short" });
     document.getElementById("lock-date-label").textContent = `Apertura programada: ${formattedDate}`;
@@ -96,6 +157,8 @@
       const diff = targetTime - Date.now();
       if (diff <= 0) {
         clearInterval(state.lockTimer);
+        stopLockParticles();
+        document.title = `${state.book?.libro || "Palabra Visual"} — Palabra Visual`;
         if (!prefersReducedMotion && typeof gsap !== "undefined") {
           gsap.to(lockEl, {
             opacity: 0,
@@ -120,6 +183,7 @@
 
     updateTick();
     lockEl.classList.add("is-active");
+    startLockParticles();
     state.lockTimer = setInterval(updateTick, 1000);
   }
 

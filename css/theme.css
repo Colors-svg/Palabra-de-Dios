@@ -524,22 +524,112 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .thumb-info small { display: block; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
 .thumb-info strong { display: block; font-size: 0.9rem; font-weight: 500; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
 
-/* Pantalla de Revelado Dinámico */
+/* Pantalla de Revelado Dinámico (Fondo negro puro, alto contraste blanco con glow y partículas) */
 .lock-screen {
-  position: fixed; inset: 0; z-index: calc(var(--z-modal) + 10); background: var(--bg-base);
-  display: none; align-items: center; justify-content: center; padding: clamp(1.5rem, 5vw, 3.5rem); text-align: center;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000000;
+  color: #ffffff;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  text-align: center;
+  overflow: hidden;
 }
 .lock-screen.is-active { display: flex; }
-.lock-bg { position: absolute; inset: 0; opacity: 0.28; background-size: cover; background-position: center; filter: blur(18px) scale(1.1); pointer-events: none; }
-.lock-card {
-  position: relative; z-index: 2; max-width: 680px; width: 100%; background: var(--bg-glass-strong);
-  backdrop-filter: blur(26px); border: 1px solid var(--border-subtle); border-top: 1px solid var(--border-glow);
-  border-radius: 26px; padding: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3rem); box-shadow: var(--shadow-soft);
+
+.lock-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
-.countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(0.55rem, 2vw, 1.1rem); margin: var(--space-md) auto; max-width: 500px; }
-.countdown-cell { background: var(--bg-glass); border: 1px solid var(--border-subtle); border-radius: 16px; padding: clamp(0.75rem, 2vw, 1.15rem) 0.5rem; }
-.countdown-num { display: block; font-family: var(--font-display); font-size: clamp(2rem, 6vw, 3.25rem); font-weight: 500; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
-.countdown-label { display: block; margin-top: 0.35rem; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-secondary); }
+
+.lock-card {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lock-emblem {
+  width: clamp(135px, 24vw, 200px);
+  height: auto;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.25));
+  opacity: 0.94;
+}
+
+.lock-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.5rem;
+}
+
+.lock-msg {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(0.95rem, 2vw, 1.12rem);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 44ch;
+  line-height: 1.6;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.6rem, 2.2vw, 1.25rem);
+  margin: 1.75rem auto 1.25rem;
+  width: 100%;
+  max-width: 520px;
+}
+
+.countdown-cell {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  padding: clamp(0.85rem, 2.5vw, 1.25rem) 0.4rem;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.04);
+}
+
+.countdown-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 7vw, 3.85rem);
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 22px rgba(255, 255, 255, 0.65), 0 0 48px rgba(255, 255, 255, 0.25);
+}
+
+.countdown-label {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.lock-date-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 
 .recuadro-card.has-detail, .timeline-item.has-detail {
   cursor: pointer;
