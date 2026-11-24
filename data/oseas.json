@@ -12,9 +12,13 @@
   "slides": [
     {
       "tipo": "portada",
-      "imagen": "assets/images/oseas-01.jpg",
+      "imagen": "assets/images/00_Portada_Profeta_Samaria.jpg",
       "overlay": 0.58,
-      "encuadre": { "x": 50, "y": 45, "zoom": 1.02 },
+      "encuadre": {
+        "x": 50,
+        "y": 45,
+        "zoom": 1.02
+      },
       "titulo": "Oseas: Amor que no se rinde",
       "subtitulo": "Del juicio a la ternura · Recorrido por Oseas 1–14",
       "versiculo": {
@@ -28,11 +32,14 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "assets/images/oseas-01.jpg",
-      "overlay": 0.72,
+      "imagen": "",
+      "overlay": 0,
       "titulo": "Tres claves del libro",
       "subtitulo": "Panorama general",
-      "versiculo": { "texto": "", "referencia": "" },
+      "versiculo": {
+        "texto": "",
+        "referencia": ""
+      },
       "reflexion": "Oseas habla al reino del norte (Israel) en tiempos de aparente calma, pero de profundo alejamiento de Dios.",
       "recuadros": [
         {
@@ -59,11 +66,14 @@
     },
     {
       "tipo": "lista",
-      "imagen": "assets/images/oseas-02.jpg",
-      "overlay": 0.74,
+      "imagen": "",
+      "overlay": 0,
       "titulo": "El contexto en 3 momentos",
       "subtitulo": "Siglo VIII a.C. · Reino del Norte",
-      "versiculo": { "texto": "", "referencia": "" },
+      "versiculo": {
+        "texto": "",
+        "referencia": ""
+      },
       "reflexion": "Abundancia por fuera, vacío por dentro y una crisis a punto de estallar.",
       "recuadros": [
         {
@@ -90,7 +100,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "assets/images/oseas-03.jpg",
+      "imagen": "assets/images/01_Cap1_Casamiento_Hebreo.jpg",
       "overlay": 0.68,
       "titulo": "Cap. 1 · Tres nombres, un mensaje",
       "subtitulo": "Oseas 1:2–11",
@@ -124,7 +134,7 @@
     },
     {
       "tipo": "comparador",
-      "imagen": "assets/images/oseas-04.jpg",
+      "imagen": "assets/images/02_Cap2_Desierto_Valle_Acor.jpg",
       "overlay": 0.65,
       "titulo": "Cap. 2 · Del desierto a la esperanza",
       "subtitulo": "Oseas 2:14–16",
@@ -148,8 +158,8 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "assets/images/oseas-05.jpg",
-      "overlay": 0.70,
+      "imagen": "",
+      "overlay": 0,
       "titulo": "Cap. 2 · Cinco pilares del nuevo pacto",
       "subtitulo": "Oseas 2:19–20",
       "versiculo": {
@@ -182,7 +192,7 @@
     },
     {
       "tipo": "dividida",
-      "imagen": "assets/images/oseas-06.jpg",
+      "imagen": "assets/images/03_Cap3_Rescate_Mercado.jpg",
       "overlay": 0.25,
       "titulo": "Cap. 3 · El rescate",
       "subtitulo": "Oseas 3:1–5",
@@ -197,7 +207,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "assets/images/oseas-07.jpg",
+      "imagen": "assets/images/04_Cap4_Lugar_Alto_Encinas.jpg",
       "overlay": 0.72,
       "titulo": "Cap. 4 · Lo que faltó en la tierra",
       "subtitulo": "Oseas 4:1–6",
@@ -231,7 +241,7 @@
     },
     {
       "tipo": "imagen-completa",
-      "imagen": "assets/images/oseas-08.jpg",
+      "imagen": "assets/images/05_Cap5_Lazo_Tabor_Asiria.jpg",
       "overlay": 0.58,
       "titulo": "Cap. 5 · Remedios que no sanan",
       "subtitulo": "Oseas 5:12–15",
@@ -246,7 +256,7 @@
     },
     {
       "tipo": "comparador",
-      "imagen": "assets/images/oseas-09.jpg",
+      "imagen": "assets/images/06_Cap6_Altar_Rocio_Manana.jpg",
       "overlay": 0.65,
       "titulo": "Cap. 6 · Más que costumbres",
       "subtitulo": "Oseas 6:4–6",
@@ -270,7 +280,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "assets/images/oseas-10.jpg",
+      "imagen": "assets/images/07_Cap7_Horno_Paloma_Incauta.jpg",
       "overlay": 0.72,
       "titulo": "Cap. 7 · Tres retratos de un corazón dividido",
       "subtitulo": "Oseas 7:4–11",
@@ -304,7 +314,7 @@
     },
     {
       "tipo": "versiculo",
-      "imagen": "assets/images/oseas-11.jpg",
+      "imagen": "assets/images/08_Cap8_Becerro_Torbellino.jpg",
       "overlay": 0.64,
       "titulo": "Cap. 8 · Cosecha inevitable",
       "subtitulo": "Oseas 8:7, 12",
@@ -319,7 +329,7 @@
     },
     {
       "tipo": "dividida",
-      "imagen": "assets/images/oseas-12.jpg",
+      "imagen": "assets/images/09_Cap9_Ortigas_Exilio_Egipto.jpg",
       "overlay": 0.25,
       "titulo": "Cap. 9 · Memoria del primer amor",
       "subtitulo": "Oseas 9:10",
@@ -334,7 +344,7 @@
     },
     {
       "tipo": "pregunta",
-      "imagen": "assets/images/oseas-13.jpg",
+      "imagen": "assets/images/10_Cap10_Barbecho_Altar_Derribado.jpg",
       "overlay": 0.66,
       "titulo": "Cap. 10 · Tiempo de arar la tierra",
       "subtitulo": "Oseas 10:12",
@@ -349,7 +359,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "assets/images/oseas-14.jpg",
+      "imagen": "assets/images/11_Cap11_Cuerdas_de_Amor.jpg",
       "overlay": 0.68,
       "titulo": "Cap. 11 · Cuerdas de amor",
       "subtitulo": "Oseas 11:1–9",
@@ -383,7 +393,7 @@
     },
     {
       "tipo": "versiculo",
-      "imagen": "assets/images/oseas-15.jpg",
+      "imagen": "assets/images/12_Cap12_Jacob_Lucha_Angel.jpg",
       "overlay": 0.65,
       "titulo": "Cap. 12 · Volver como Jacob",
       "subtitulo": "Oseas 12:4–6",
@@ -398,7 +408,7 @@
     },
     {
       "tipo": "comparador",
-      "imagen": "assets/images/oseas-16.jpg",
+      "imagen": "assets/images/13_Cap13_Solano_Victoria_Seol.jpg",
       "overlay": 0.62,
       "titulo": "Cap. 13 · Más fuerte que la muerte",
       "subtitulo": "Oseas 13:14",
@@ -422,7 +432,7 @@
     },
     {
       "tipo": "cierre",
-      "imagen": "assets/images/oseas-17.jpg",
+      "imagen": "assets/images/14_Cap14_Rocio_Lirios_Libano.jpg",
       "overlay": 0.58,
       "titulo": "Cap. 14 · Sanidad por pura gracia",
       "subtitulo": "Oseas 14:4–9",
