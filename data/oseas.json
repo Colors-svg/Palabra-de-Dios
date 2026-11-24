@@ -12,9 +12,13 @@
   "slides": [
     {
       "tipo": "portada",
-      "imagen": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-01.jpg",
       "overlay": 0.58,
-      "encuadre": { "x": 50, "y": 45, "zoom": 1.02 },
+      "encuadre": {
+        "x": 50,
+        "y": 45,
+        "zoom": 1.02
+      },
       "titulo": "Oseas: El Profeta del Amor Herido",
       "subtitulo": "Del juicio del pacto a las cuerdas de amor inextinguible (Estudio Exegético de Oseas 1–14).",
       "versiculo": {
@@ -28,11 +32,14 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-01.jpg",
       "overlay": 0.72,
       "titulo": "Ejes Centrales de la Exégesis",
       "subtitulo": "Contexto Teológico · Trei Asar",
-      "versiculo": { "texto": "", "referencia": "" },
+      "versiculo": {
+        "texto": "",
+        "referencia": ""
+      },
       "reflexion": "Oseas ministra en el reino del norte (Israel / Efraín) en el siglo VIII a.C., revelando el corazón de Dios ante la traición espiritual de su pueblo.",
       "recuadros": [
         {
@@ -59,11 +66,14 @@
     },
     {
       "tipo": "lista",
-      "imagen": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-02.jpg",
       "overlay": 0.74,
       "titulo": "Sitz im Leben · Siglo VIII a.C.",
       "subtitulo": "Contexto Histórico, Político y Cúltico",
-      "versiculo": { "texto": "", "referencia": "" },
+      "versiculo": {
+        "texto": "",
+        "referencia": ""
+      },
       "reflexion": "Prosperidad ilusoria, anarquía regicida y sincretismo cananeo bajo la sombra de la invasión asiria.",
       "recuadros": [
         {
@@ -90,7 +100,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-03.jpg",
       "overlay": 0.68,
       "titulo": "Cap. 1 · El Mandato y los Tres Hijos",
       "subtitulo": "Oseas 1:2–11 · Acto Profético ('Ot)",
@@ -124,7 +134,7 @@
     },
     {
       "tipo": "comparador",
-      "imagen": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-04.jpg",
       "overlay": 0.64,
       "titulo": "Cap. 2 · Del Desierto al Nuevo Nombre",
       "subtitulo": "Oseas 2:14–16 · Cambio de Vocabulario",
@@ -148,8 +158,8 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.70,
+      "imagen": "assets/images/oseas-05.jpg",
+      "overlay": 0.7,
       "titulo": "Cap. 2 · Las Cinco Joyas del Desposorio",
       "subtitulo": "Oseas 2:19–20 · Dote del Pacto Eterno",
       "versiculo": {
@@ -182,7 +192,7 @@
     },
     {
       "tipo": "dividida",
-      "imagen": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
+      "imagen": "assets/images/oseas-06.jpg",
       "overlay": 0.25,
       "titulo": "Cap. 3 · El Rescate en el Mercado",
       "subtitulo": "Oseas 3:1–5 · Precio de Redención",
@@ -197,7 +207,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-07.jpg",
       "overlay": 0.72,
       "titulo": "Cap. 4 · El Pleito del Pacto (Rîv)",
       "subtitulo": "Oseas 4:1–6 · Tribunal Divino",
@@ -231,7 +241,7 @@
     },
     {
       "tipo": "imagen-completa",
-      "imagen": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-08.jpg",
       "overlay": 0.58,
       "titulo": "Cap. 5 · La Trampa y la Polilla",
       "subtitulo": "Oseas 5:1–15 · Juicio Progresivo",
@@ -246,8 +256,8 @@
     },
     {
       "tipo": "comparador",
-      "imagen": "",
-      "overlay": 0.0,
+      "imagen": "assets/images/oseas-09.jpg",
+      "overlay": 0.65,
       "titulo": "Cap. 6 · El Corazón Teológico del Libro",
       "subtitulo": "Oseas 6:4–6 · Liturgia vs. Realidad",
       "comparador": {
@@ -270,7 +280,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-10.jpg",
       "overlay": 0.72,
       "titulo": "Cap. 7 · Torta No Volteada y Paloma Incauta",
       "subtitulo": "Oseas 7:4–11 · Tres Metáforas de Ruina",
@@ -304,7 +314,7 @@
     },
     {
       "tipo": "versiculo",
-      "imagen": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-11.jpg",
       "overlay": 0.64,
       "titulo": "Cap. 8 · Causalidad Moral",
       "subtitulo": "Oseas 8:1–12 · Shofar y Torbellino",
@@ -319,7 +329,7 @@
     },
     {
       "tipo": "dividida",
-      "imagen": "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1400&q=80",
+      "imagen": "assets/images/oseas-12.jpg",
       "overlay": 0.25,
       "titulo": "Cap. 9 · El Exilio del Gozo",
       "subtitulo": "Oseas 9:1–17 · De Uvas en el Desierto a Baal-peor",
@@ -334,7 +344,7 @@
     },
     {
       "tipo": "pregunta",
-      "imagen": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-13.jpg",
       "overlay": 0.66,
       "titulo": "Cap. 10 · La Viña Frondosa y el Barbecho",
       "subtitulo": "Oseas 10:1–12 · Corazón Dividido",
@@ -349,7 +359,7 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-14.jpg",
       "overlay": 0.68,
       "titulo": "Cap. 11 · Cuerdas de Amor y Corazón Conmovido",
       "subtitulo": "Oseas 11:1–9 · La Paternidad de Dios",
@@ -383,7 +393,7 @@
     },
     {
       "tipo": "versiculo",
-      "imagen": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-15.jpg",
       "overlay": 0.65,
       "titulo": "Cap. 12 · De Bet-el a Peniel",
       "subtitulo": "Oseas 12:2–13 · La Lucha de Jacob",
@@ -398,7 +408,7 @@
     },
     {
       "tipo": "comparador",
-      "imagen": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-16.jpg",
       "overlay": 0.62,
       "titulo": "Cap. 13 · Victoria sobre el Seol",
       "subtitulo": "Oseas 13:14 · Eco en 1 Corintios 15:55",
@@ -422,7 +432,7 @@
     },
     {
       "tipo": "cierre",
-      "imagen": "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "assets/images/oseas-17.jpg",
       "overlay": 0.58,
       "titulo": "Cap. 14 · Sanidad por Pura Gracia",
       "subtitulo": "Oseas 14:1–9 · Liturgia de Retorno (Shub)",
