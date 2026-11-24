@@ -1,6 +1,8 @@
 {
   "libro": "Oseas",
   "version": "Reina-Valera 1960",
+  "desbloqueo": "2026-11-24T13:00",
+  "bloqueoMensaje": "Esta charla exegética sobre el libro de Oseas se abrirá hoy a la 1:00 p.m. para nuestro tiempo de estudio y meditación.",
   "tema": {
     "paleta": "dorado-noche",
     "fuenteTitulo": "Cormorant Garamond",
@@ -12,131 +14,335 @@
       "tipo": "portada",
       "imagen": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1920&q=80",
       "overlay": 0.58,
-      "titulo": "Oseas",
-      "subtitulo": "Un amor que no se rinde ante el olvido: recorrido contemplativo por la fidelidad de Dios.",
+      "encuadre": { "x": 50, "y": 45, "zoom": 1.02 },
+      "titulo": "Oseas: El Profeta del Amor Herido",
+      "subtitulo": "Del juicio del pacto a las cuerdas de amor inextinguible (Estudio Exegético de Oseas 1–14).",
       "versiculo": {
-        "texto": "Yo sanaré su rebelión, los amaré de pura gracia; porque mi ira se apartó de ellos.",
-        "referencia": "Oseas 14:4"
+        "texto": "¿Cómo podré abandonarte, oh Efraín? ¿Te entregaré yo, Israel?... Mi corazón se conmueve dentro de mí, se inflama toda mi compasión.",
+        "referencia": "Oseas 11:8"
       },
-      "reflexion": "Una historia real convertida en parábola viviente sobre el corazón de Dios hacia un pueblo que buscó amor en otros altares.",
+      "reflexion": "Comunidad Académica y Pastoral de Estudio Bíblico · Trei Asar: Libro de Oseas.",
       "recuadros": [],
       "animacion": "fade",
       "layout": "centrado"
     },
     {
-      "tipo": "dividida",
-      "imagen": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=80",
-      "overlay": 0.25,
-      "titulo": "El llamado insólito",
-      "subtitulo": "Cuando la vida del profeta se vuelve mensaje",
-      "versiculo": {
-        "texto": "El principio de la palabra de Jehová por medio de Oseas. Dijo Jehová a Oseas: Ve, tómate una mujer fornicaria, e hijos de fornicación; porque la tierra fornica apartándose de Jehová.",
-        "referencia": "Oseas 1:2"
-      },
-      "reflexion": "Antes de pronunciar un solo sermón, Oseas debía sentir en carne propia la herida del amor no correspondido. Dios no habla desde la distancia; comparte el dolor de quien ama y es olvidado.",
-      "recuadros": [],
+      "tipo": "reflexion",
+      "imagen": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.72,
+      "titulo": "Ejes Centrales de la Exégesis",
+      "subtitulo": "Contexto Teológico · Trei Asar",
+      "versiculo": { "texto": "", "referencia": "" },
+      "reflexion": "Oseas ministra en el reino del norte (Israel / Efraín) en el siglo VIII a.C., revelando el corazón de Dios ante la traición espiritual de su pueblo.",
+      "recuadros": [
+        {
+          "icono": "balanza",
+          "titulo": "El Conflicto del Pacto",
+          "texto": "Ruptura del pacto nupcial con Yahvé mediante la idolatría y el sincretismo baalista.",
+          "detalle": "El profeta Oseas expone la tragedia de una nación que quebrantó la exclusividad pactual con Yahvé al mezclar el culto en Bet-el y Gilgal con los ritos cananeos de fertilidad de Baal.\n\n• El libro inicia con una señal viviente y continúa con un litigio legal divino (rîv)."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "Matrimonio como Señal ('Ot)",
+          "texto": "La unión real con Gómer encarna el sufrimiento del corazón divino ante la infidelidad.",
+          "detalle": "La unión de Oseas con Gómer bat-Diblaim no es una alegoría abstracta ni una parábola literaria, sino un acto profético ('ot) histórico y vivencial.\n\n• La vida doméstica del profeta se convierte en el sermón visible de Dios."
+        },
+        {
+          "icono": "llave",
+          "titulo": "De la Condenación a la Gracia",
+          "texto": "Del juicio de Lo-ammi («No mi pueblo») al desposorio eterno en justicia y fidelidad.",
+          "detalle": "El recorrido teológico transita desde el veredicto del pleito legal divino (rîv) y los nombres de juicio, hasta la reconciliación prometida a través de cuerdas humanas de amor ('ajavat jésed) y el rocío restaurador del capítulo 14."
+        }
+      ],
       "animacion": "slide-up",
-      "layout": "izquierda"
+      "layout": "centrado"
     },
     {
-      "tipo": "versiculo",
-      "imagen": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.62,
-      "titulo": "Puerta de esperanza",
-      "subtitulo": "El desierto como lugar de reencuentro",
-      "versiculo": {
-        "texto": "Pero he aquí que yo la atraeré y la llevaré al desierto, y hablaré a su corazón. Y le daré sus viñas desde allí, y el valle de Acor por puerta de esperanza.",
-        "referencia": "Oseas 2:14-15"
-      },
-      "reflexion": "",
-      "recuadros": [],
-      "animacion": "revelar-palabras",
+      "tipo": "lista",
+      "imagen": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.74,
+      "titulo": "Sitz im Leben · Siglo VIII a.C.",
+      "subtitulo": "Contexto Histórico, Político y Cúltico",
+      "versiculo": { "texto": "", "referencia": "" },
+      "reflexion": "Prosperidad ilusoria, anarquía regicida y sincretismo cananeo bajo la sombra de la invasión asiria.",
+      "recuadros": [
+        {
+          "icono": "corona",
+          "titulo": "793–753 a.C. · Apogeo bajo Jeroboam II",
+          "texto": "Estabilidad económica y expansión que enmascararon podredumbre moral y marginación social.",
+          "detalle": "Durante el largo reinado de Jeroboam II, las élites de Samaria acumularon riquezas y construyeron altares suntuosos, pero la justicia social y el conocimiento de Dios colapsaron desde dentro."
+        },
+        {
+          "icono": "reloj",
+          "titulo": "Declive y Anarquía Regicida",
+          "texto": "Seis reyes en menos de treinta años; cuatro de ellos asesinados en conspiraciones.",
+          "detalle": "Tras la muerte de Jeroboam II se desató una espiral de golpes de estado: Zacarías, Salum, Manahem, Pekaía, Peka y Oseas. Bet-el fue rebautizado por el profeta como «Bet-avén» ('Casa de iniquidad')."
+        },
+        {
+          "icono": "escudo",
+          "titulo": "722 a.C. · La Amenaza Neoasiria",
+          "texto": "Asedio y caída definitiva de Samaria a manos de Salmanasar V y Sargón II.",
+          "detalle": "La política expansionista de Tiglat-pileser III culminó con la caída de Samaria en 722 a.C., desmantelando el reino del norte. Oseas encabeza el Rollo de los Doce (Trei Asar) por su densidad teológica y primacía cronológica."
+        }
+      ],
+      "animacion": "slide-up",
       "layout": "centrado"
     },
     {
       "tipo": "reflexion",
-      "imagen": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
+      "imagen": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1920&q=80",
       "overlay": 0.68,
-      "titulo": "Un pacto renovado",
-      "subtitulo": "Del temor a la intimidad",
+      "titulo": "Cap. 1 · El Mandato y los Tres Hijos",
+      "subtitulo": "Oseas 1:2–11 · Acto Profético ('Ot)",
       "versiculo": {
-        "texto": "Y te desposaré conmigo para siempre; te desposaré conmigo en justicia, juicio, benignidad y misericordia. Y te desposaré conmigo en fidelidad, y conocerás a Jehová.",
-        "referencia": "Oseas 2:19-20"
+        "texto": "Dijo Jehová a Oseas: Ve, tómate una mujer fornicaria, e hijos de fornicación; porque la tierra fornica apartándose de Jehová.",
+        "referencia": "Oseas 1:2"
       },
-      "reflexion": "En la cultura del pacto, la dote definía el valor de la alianza. Aquí Dios mismo aporta los cinco pilares que sostienen la relación.",
+      "reflexion": "El término hebreo 'eshet zenunim (אֵשֶׁת זְנוּנִים) describe una inclinación persistente a la infidelidad. Los hijos de este matrimonio llevan nombres que pronuncian sentencia… y luego gracia.",
       "recuadros": [
         {
-          "icono": "balanza",
-          "titulo": "Justicia y Juicio",
-          "texto": "Un vínculo recto, transparente y firme que protege al vulnerable.",
-          "detalle": "En Oseas 2:19, justicia (tsedeq) y juicio (mishpat) no son palabras frías de tribunal, sino la promesa de un trato recto y protector.\n\n• Dios no improvisa ni abandona su compromiso.\n• La relación se reconstruye sobre verdad, no sobre apariencias."
+          "icono": "semilla",
+          "titulo": "1. Jezreel (יִזְרְעֶאל)",
+          "texto": "«Dios esparce / siembra». Fin militar de Israel en el valle de Jezreel (Os 1:5).",
+          "detalle": "Memoria de la sangre de la casa de Jehú (2 Reyes 9–10). En el juicio significa dispersión, pero en el giro de gracia (Oseas 1:11 y 2:22) el mismo nombre significa que Dios vuelve a sembrar a su pueblo en la tierra."
         },
         {
           "icono": "corazon",
-          "titulo": "Benignidad y Misericordia",
-          "texto": "Ternura inmerecida que restaura incluso después de la ruptura.",
-          "detalle": "Benignidad (jesed) es amor leal que permanece aun cuando el otro falló. Misericordia (rajamim) evoca la ternura profunda de una madre hacia su hijo.\n\nLo que antes era \"Lo-ruhama\" (no compadecida) ahora recibe abrazo pleno."
+          "titulo": "2. Lo-ruhama (לֹא רֻחָמָה)",
+          "texto": "«No compadecida». Retiro de la compasión visceral (rajam) ante la obstinación (Os 1:6).",
+          "detalle": "La raíz hebrea 'rajam' está ligada a las entrañas maternas. El nombre marca la suspensión temporal de la piedad sobre el reino del norte, mientras Judá aún es preservado sin arco ni espada (Os 1:7)."
         },
         {
-          "icono": "luz",
-          "titulo": "Fidelidad",
-          "texto": "La constancia de quien permanece cuando todo lo demás cambia.",
-          "detalle": "La fidelidad (emunah) culmina en intimidad: \"y conocerás a Jehová\". En el lenguaje bíblico, conocer no es solo acumular datos, sino caminar en confianza mutua."
+          "icono": "libro",
+          "titulo": "3. Lo-ammi (לֹא עַמִּי)",
+          "texto": "«No mi pueblo». Revocación formal de la fórmula del pacto del Sinaí (Os 1:9).",
+          "detalle": "Anula el «Yo seré vuestro Dios y vosotros seréis mi pueblo» (Éxodo 6:7). Sin embargo, inmediatamente en Oseas 1:10 irrumpe la promesa: «Les será dicho: Sois hijos del Dios viviente»."
         }
       ],
       "animacion": "slide-up",
       "layout": "izquierda"
     },
     {
-      "tipo": "imagen-completa",
-      "imagen": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.52,
-      "titulo": "El precio del rescate",
-      "subtitulo": "Capítulo 3",
+      "tipo": "comparador",
+      "imagen": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.64,
+      "titulo": "Cap. 2 · Del Desierto al Nuevo Nombre",
+      "subtitulo": "Oseas 2:14–16 · Cambio de Vocabulario",
+      "comparador": {
+        "idioma": "Hebreo",
+        "espanol": {
+          "palabra": "Me llamarás «Ishi»",
+          "referencia": "Oseas 2:14–16",
+          "texto": "«La atraeré y la llevaré al desierto, y hablaré a su corazón... me llamarás Ishi, y nunca más me llamarás Baali.»"
+        },
+        "original": {
+          "palabra": "אִישִׁי  ←  בַּעְלִי",
+          "transliteracion": "Baali («Mi amo»)  →  Ishi («Mi esposo»)",
+          "texto": "El desierto purifica el lenguaje: de una relación servil y sincretista con Baal, a la intimidad matrimonial renovada en el Valle de Acor (Petaj Tiqvah, «puerta de esperanza»)."
+        }
+      },
+      "reflexion": "Dios transforma el Valle de Acor ('Perturbación', Josué 7) en puerta de esperanza (Oseas 2:15).",
+      "recuadros": [],
+      "animacion": "fade",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "reflexion",
+      "imagen": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.70,
+      "titulo": "Cap. 2 · Las Cinco Joyas del Desposorio",
+      "subtitulo": "Oseas 2:19–20 · Dote del Pacto Eterno",
+      "versiculo": {
+        "texto": "Y te desposaré conmigo para siempre; te desposaré conmigo en justicia, juicio, benignidad y misericordia. Y te desposaré conmigo en fidelidad, y conocerás a Jehová.",
+        "referencia": "Oseas 2:19-20"
+      },
+      "reflexion": "Dios mismo aporta la dote nupcial para sostener la alianza para siempre.",
+      "recuadros": [
+        {
+          "icono": "balanza",
+          "titulo": "Justicia y Juicio (Tsedeq · Mishpat)",
+          "texto": "Rectitud, reivindicación y derecho que protegen el vínculo del pacto.",
+          "detalle": "En Oseas 2:19, justicia (צֶדֶק, tsedeq) y juicio (מִשְׁפָּט, mishpat) no son términos fríos de tribunal, sino el compromiso de un trato recto, transparente y protector para reconstruir la relación."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "Benignidad y Misericordia (Jésed · Rajamim)",
+          "texto": "Amor leal inquebrantable unido a una ternura entrañable.",
+          "detalle": "Jésed (חֶסֶד) es la lealtad que permanece aun cuando el otro falló; Rajamim (רַחֲמִים) es la compasión visceral. Lo que antes era «Lo-ruhama» ahora recibe abrazo pleno en Oseas 2:23."
+        },
+        {
+          "icono": "ancla",
+          "titulo": "Fidelidad (Emunah)",
+          "texto": "Firmeza constante que culmina en el conocimiento íntimo de Dios.",
+          "detalle": "Emunah (אֱמוּנָה) significa solidez y constancia. Su fruto directo es «y conocerás a Jehová»: no mera información intelectual, sino comunión viva y confiada."
+        }
+      ],
+      "animacion": "slide-up",
+      "layout": "izquierda"
+    },
+    {
+      "tipo": "dividida",
+      "imagen": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80",
+      "overlay": 0.25,
+      "titulo": "Cap. 3 · El Rescate en el Mercado",
+      "subtitulo": "Oseas 3:1–5 · Precio de Redención",
       "versiculo": {
         "texto": "Me dijo otra vez Jehová: Ve, ama a una mujer amada de su compañero, aunque adúltera, como el amor de Jehová para con los hijos de Israel.",
         "referencia": "Oseas 3:1"
       },
-      "reflexion": "Oseas compra de vuelta a Gomer por quince siclos de plata y cebada: un retrato silencioso de la gracia que busca al perdido.",
+      "reflexion": "Oseas la compra por 15 siclos de plata y 1½ homer de cebada (~30 siclos en total, el precio legal de un esclavo en Éxodo 21:32) y establece un tiempo de retiro purificador hasta que busquen a Jehová y a David su rey.",
+      "recuadros": [],
+      "animacion": "slide-up",
+      "layout": "izquierda"
+    },
+    {
+      "tipo": "reflexion",
+      "imagen": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.72,
+      "titulo": "Cap. 4 · El Pleito del Pacto (Rîv)",
+      "subtitulo": "Oseas 4:1–6 · Tribunal Divino",
+      "versiculo": {
+        "texto": "Mi pueblo fue destruido, porque le faltó conocimiento. Por cuanto desechaste el conocimiento, yo te echaré del sacerdocio.",
+        "referencia": "Oseas 4:6"
+      },
+      "reflexion": "Jehová abre un juicio legal (רִיב, rîv) contra Israel porque han desaparecido tres pilares éticos, provocando incluso el luto ecológico de la tierra (Os 4:3).",
+      "recuadros": [
+        {
+          "icono": "luz",
+          "titulo": "'Emet (אֱמֶת · Verdad)",
+          "texto": "Fidelidad e integridad pública quebrantadas por perjurio y engaño.",
+          "detalle": "«Perjurar, mentir, matar, hurtar y adulterar prevalecen» (Oseas 4:2). La ruptura del Decálogo destruye la confianza social."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "Jésed (חֶסֶד · Misericordia)",
+          "texto": "Lealtad del pacto rota; los sacerdotes lucran con el pecado del pueblo.",
+          "detalle": "«Del pecado de mi pueblo comen» (Oseas 4:8). El liderazgo espiritual convirtió el culto en negocio, cumpliéndose el principio «será el pueblo como el sacerdote» (4:9)."
+        },
+        {
+          "icono": "libro",
+          "titulo": "Da'at 'Elohim (דַּעַת אֱלֹהִים)",
+          "texto": "Falta de conocimiento vivo de Dios y olvido deliberado de su Ley.",
+          "detalle": "No era ignorancia por falta de acceso, sino rechazo activo de la Palabra revelada («desechaste el conocimiento»)."
+        }
+      ],
+      "animacion": "slide-up",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "imagen-completa",
+      "imagen": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.58,
+      "titulo": "Cap. 5 · La Trampa y la Polilla",
+      "subtitulo": "Oseas 5:1–15 · Juicio Progresivo",
+      "versiculo": {
+        "texto": "Yo, pues, seré como polilla a Efraín, y como carcoma a la casa de Judá... Andaré y volveré a mi lugar, hasta que reconozcan su pecado y busquen mi rostro.",
+        "referencia": "Oseas 5:12, 15"
+      },
+      "reflexion": "Los santuarios de Mizpa y Tabor se volvieron lazo de cazador. Al buscar sanidad en el rey asirio («Jareb») en vez de Yahvé, el juicio pasa de erosión silenciosa (polilla) a león desgarrador.",
       "recuadros": [],
       "animacion": "zoom-lento",
       "layout": "inferior"
     },
     {
-      "tipo": "versiculo",
+      "tipo": "comparador",
       "imagen": "",
-      "overlay": 0,
-      "titulo": "Lo que Dios desea",
-      "subtitulo": "Más allá del ritual vacío",
-      "versiculo": {
-        "texto": "Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.",
-        "referencia": "Oseas 6:6"
+      "overlay": 0.0,
+      "titulo": "Cap. 6 · El Corazón Teológico del Libro",
+      "subtitulo": "Oseas 6:4–6 · Liturgia vs. Realidad",
+      "comparador": {
+        "idioma": "Hebreo",
+        "espanol": {
+          "palabra": "Misericordia quiero",
+          "referencia": "Oseas 6:6 (citado en Mt 9:13 y 12:7)",
+          "texto": "«Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.»"
+        },
+        "original": {
+          "palabra": "חֶסֶד",
+          "transliteracion": "Jésed · Amor leal que no se evapora",
+          "texto": "La piedad de Israel era efímera como nube de la mañana y rocío de madrugada (6:4). Dios exige jésed: lealtad viva al pacto, no ritos mecánicos."
+        }
       },
-      "reflexion": "La piedad que dura como el rocío de la madrugada no basta; Dios busca un corazón que lo conozca de verdad.",
+      "reflexion": "Jesús cita Oseas 6:6 en dos momentos clave de Mateo para mostrar que el ritualismo sin amor desfigura la fe.",
+      "recuadros": [],
+      "animacion": "fade",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "reflexion",
+      "imagen": "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.72,
+      "titulo": "Cap. 7 · Torta No Volteada y Paloma Incauta",
+      "subtitulo": "Oseas 7:4–11 · Tres Metáforas de Ruina",
+      "versiculo": {
+        "texto": "Efraín se ha mezclado con los demás pueblos; Efraín fue torta no volteada... Efraín fue como paloma incauta, sin entendimiento.",
+        "referencia": "Oseas 7:8, 11"
+      },
+      "reflexion": "Conspiraciones palaciegas, sincretismo a medias y miopía diplomática entre Egipto y Asiria.",
+      "recuadros": [
+        {
+          "icono": "llama",
+          "titulo": "El Horno Ardiente (7:4–7)",
+          "texto": "Pasión sediciosa y banquetes que devoraron a sus reyes sin clamar a Dios.",
+          "detalle": "Describe la vorágine de intrigas sangrientas y golpes de estado en Samaria. El corazón arde como horno de panadero, pero nadie ora al Dios del pacto."
+        },
+        {
+          "icono": "escudo",
+          "titulo": "Torta No Volteada (7:8–9)",
+          "texto": "Pan quemado de un lado y crudo del otro: inutilizable por su sincretismo.",
+          "detalle": "Israel no fue ni fiel a Yahvé ni plenamente pagano. Mientras tanto, extranjeros devoraban su fuerza y le cubrían canas sin que se diera cuenta (7:9)."
+        },
+        {
+          "icono": "paloma",
+          "titulo": "Paloma Incauta (7:11–12)",
+          "texto": "Aleteo atolondrado llamando a Egipto y acudiendo a Asiria.",
+          "detalle": "En vez de volver al Altísimo, oscilan torpemente entre dos imperios rivales, precipitándose directos hacia la red del juicio."
+        }
+      ],
+      "animacion": "slide-up",
+      "layout": "centrado"
+    },
+    {
+      "tipo": "versiculo",
+      "imagen": "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.64,
+      "titulo": "Cap. 8 · Causalidad Moral",
+      "subtitulo": "Oseas 8:1–12 · Shofar y Torbellino",
+      "versiculo": {
+        "texto": "Porque sembraron viento, y torbellino segarán... Le escribí las grandezas de mi ley, y fueron tenidas por cosa extraña.",
+        "referencia": "Oseas 8:7, 12"
+      },
+      "reflexion": "Reyes levantados sin Dios, el becerro de Samaria reducido a pedazos y la Escritura tratada con indiferencia.",
       "recuadros": [],
       "animacion": "revelar-palabras",
       "layout": "centrado"
     },
     {
-      "tipo": "comparador",
-      "imagen": "",
-      "overlay": 0,
-      "titulo": "El corazón del pacto",
-      "subtitulo": "Palabra clave en Oseas 6:6",
-      "comparador": {
-        "idioma": "Hebreo",
-        "espanol": {
-          "palabra": "Misericordia",
-          "referencia": "Oseas 6:6",
-          "texto": "«Porque misericordia quiero, y no sacrificio, y conocimiento de Dios más que holocaustos.»"
-        },
-        "original": {
-          "palabra": "חֶסֶד",
-          "transliteracion": "jesed",
-          "texto": "Amor leal, bondad firme del pacto, compasión que no abandona aunque el otro haya fallado."
-        }
+      "tipo": "dividida",
+      "imagen": "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1400&q=80",
+      "overlay": 0.25,
+      "titulo": "Cap. 9 · El Exilio del Gozo",
+      "subtitulo": "Oseas 9:1–17 · De Uvas en el Desierto a Baal-peor",
+      "versiculo": {
+        "texto": "Como uvas en el desierto hallé a Israel; como la fruta temprana de la higuera en su principio vi a vuestros padres.",
+        "referencia": "Oseas 9:10"
       },
-      "reflexion": "Oseas no pide simples emociones pasajeras; jesed es la lealtad constante del corazón hacia Dios y hacia el prójimo.",
+      "reflexion": "El recuerdo del primer amor contrasta con la apostasía en Baal-peor y Gilgal. Los sacrificios pierden su gozo y se vuelven «pan de enlutados» ante el exilio inminente a Egipto y Asiria.",
+      "recuadros": [],
+      "animacion": "slide-up",
+      "layout": "derecha"
+    },
+    {
+      "tipo": "pregunta",
+      "imagen": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.66,
+      "titulo": "Cap. 10 · La Viña Frondosa y el Barbecho",
+      "subtitulo": "Oseas 10:1–12 · Corazón Dividido",
+      "versiculo": {
+        "texto": "Sembrad para vosotros en justicia, segad para vosotros en misericordia; haced para vosotros barbecho; porque es el tiempo de buscar a Jehová, hasta que venga y os enseñe justicia.",
+        "referencia": "Oseas 10:12"
+      },
+      "reflexion": "Israel dio abundante fruto «para sí mismo» (gefen boqeq, 10:1) con un corazón dividido. ¿Qué terreno duro de nuestra vida necesita hoy romperse como barbecho para buscar a Jehová?",
       "recuadros": [],
       "animacion": "fade",
       "layout": "centrado"
@@ -144,73 +350,72 @@
     {
       "tipo": "reflexion",
       "imagen": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.65,
-      "titulo": "Cuerdas de amor",
-      "subtitulo": "La compasión que vence al juicio",
+      "overlay": 0.68,
+      "titulo": "Cap. 11 · Cuerdas de Amor y Corazón Conmovido",
+      "subtitulo": "Oseas 11:1–9 · La Paternidad de Dios",
       "versiculo": {
         "texto": "Con cuerdas humanas los atraje, con cuerdas de amor; y fui para ellos como los que alzan el yugo de sobre su cerviz, y puse delante de ellos la comida.",
         "referencia": "Oseas 11:4"
       },
-      "reflexion": "El capítulo 11 revela el latido más íntimo de Dios: un padre que enseñó a caminar a su hijo y cuyo corazón se conmueve antes de destruir.",
+      "reflexion": "El capítulo 11 revela la pedagogía paternal de Dios desde el Éxodo y la victoria de su compasión sobre la ira.",
       "recuadros": [
         {
           "icono": "mano",
-          "titulo": "Enseñar a andar",
-          "texto": "Dios recuerda la infancia de Israel: sostener de los brazos con paciencia.",
-          "detalle": "Oseas 11:3 dice literalmente: \"Yo con todo eso enseñaba a andar al mismo Efraín, tomándole de los brazos; y no conoció que yo le cuidaba.\"\n\n• Imagen paternal: Dios no exige que el niño corra solo; se agacha, lo toma de los brazos y sostiene sus primeros pasos.\n• Aplicación concreta: incluso en etapas donde no percibimos su mano, su cuidado nos ha estado sosteniendo."
+          "titulo": "Enseñar a andar (11:3)",
+          "texto": "«Yo enseñaba a andar al mismo Efraín, tomándole de los brazos; y no conoció que yo le cuidaba.»",
+          "detalle": "Oseas 11:3 retrata a Dios como un padre que se agacha para sostener los primeros pasos de un niño pequeño.\n\n• Pedagogía de ternura: no exige que caminemos solos; nos toma de los brazos.\n• Incluso cuando no percibimos su mano, su cuidado ha sostenido nuestra historia."
+        },
+        {
+          "icono": "corazon",
+          "titulo": "Cuerdas de Amor ('Ajavat Jésed)",
+          "texto": "Vínculos humanos de compasión que alivian el yugo en vez de imponer esclavitud.",
+          "detalle": "A diferencia de los imperios que arrastraban cautivos con garfios y cadenas, Yahvé atrae con «cuerdas humanas» de afecto fiel ('ajavat jésed) y se inclina para dar alimento."
         },
         {
           "icono": "llama",
-          "titulo": "Compasión encendida",
-          "texto": "«¿Cómo podré abandonarte, oh Efraín? Mi corazón se conmueve dentro de mí» (11:8).",
-          "detalle": "En Oseas 11:8-9 ocurre uno de los momentos más conmovedores del Antiguo Testamento: el corazón de Dios se conmueve antes de ejecutar el juicio.\n\n\"Porque Dios soy, y no hombre, el Santo en medio de ti.\"\nLa santidad de Dios aquí se manifiesta como compasión que no destruye por impulso."
+          "titulo": "El Santo en Medio de Ti (11:8–9)",
+          "texto": "«Se inflama toda mi compasión... porque Dios soy, y no hombre.»",
+          "detalle": "La santidad de Dios no se expresa aquí como venganza humana implacable, sino como la capacidad soberana de amar con misericordia redentora donde el hombre destruiría como a Adma y Zeboim."
         }
       ],
       "animacion": "parallax",
       "layout": "derecha"
     },
     {
-      "tipo": "lista",
-      "imagen": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.72,
-      "titulo": "Arquitectura de Oseas",
-      "subtitulo": "Tres movimientos del libro para leer con claridad",
+      "tipo": "versiculo",
+      "imagen": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.65,
+      "titulo": "Cap. 12 · De Bet-el a Peniel",
+      "subtitulo": "Oseas 12:2–13 · La Lucha de Jacob",
       "versiculo": {
-        "texto": "",
-        "referencia": ""
+        "texto": "Tú, pues, vuélvete a tu Dios; guarda misericordia y juicio, y en tu Dios confía siempre.",
+        "referencia": "Oseas 12:6"
       },
-      "reflexion": "El libro alterna confrontación honesta con promesas de restauración.",
-      "recuadros": [
-        {
-          "icono": "libro",
-          "titulo": "I. La historia vivida (Cap. 1–3)",
-          "texto": "El matrimonio de Oseas y Gomer encarna la infidelidad de Israel y el rescate obstinado de Dios."
-        },
-        {
-          "icono": "semilla",
-          "titulo": "II. El pleito y el clamor (Cap. 4–10)",
-          "texto": "Denuncia de una fe superficial y llamado a sembrar justicia y segar misericordia (10:12)."
-        },
-        {
-          "icono": "luz",
-          "titulo": "III. La ternura final (Cap. 11–14)",
-          "texto": "El corazón paterno de Dios triunfa sobre la ira y promete sanar como rocío sobre el lirio."
-        }
-      ],
-      "animacion": "slide-up",
+      "reflexion": "Frente al mercader fraudulento con peso falso (12:7), Oseas recuerda a Jacob: su victoria ante el ángel no vino por astucia, sino cuando «lloró, y le rogó» en Bet-el (12:4).",
+      "recuadros": [],
+      "animacion": "revelar-palabras",
       "layout": "centrado"
     },
     {
-      "tipo": "pregunta",
-      "imagen": "https://images.unsplash.com/photo-1499002238440-d264edd596ec?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.66,
-      "titulo": "Pausa para meditar",
-      "subtitulo": "Llevando el texto a la vida cotidiana",
-      "versiculo": {
-        "texto": "Sembrad para vosotros en justicia, segad para vosotros en misericordia; haced para vosotros barbecho; porque es el tiempo de buscar a Jehová, hasta que venga y os enseñe justicia.",
-        "referencia": "Oseas 10:12"
+      "tipo": "comparador",
+      "imagen": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80",
+      "overlay": 0.62,
+      "titulo": "Cap. 13 · Victoria sobre el Seol",
+      "subtitulo": "Oseas 13:14 · Eco en 1 Corintios 15:55",
+      "comparador": {
+        "idioma": "Hebreo",
+        "espanol": {
+          "palabra": "Oh muerte, yo seré tu muerte",
+          "referencia": "Oseas 13:14 (RVR 1960)",
+          "texto": "«De la mano del Seol los redimiré, los libraré de la muerte. Oh muerte, yo seré tu muerte; y seré tu destrucción, oh Seol.»"
+        },
+        "original": {
+          "palabra": "מִיַּד שְׁאוֹל אֶפְדֵּם",
+          "transliteracion": "Miyad She'ol efdem · «De mano del Seol los redimiré»",
+          "texto": "Tras el juicio más severo del capítulo 13 irrumpe el desafío soberano contra la tumba, citado victoriosamente por Pablo en 1 Corintios 15:55 al celebrar la resurrección."
+        }
       },
-      "reflexion": "¿Qué 'valle de Acor' o terreno árido en tu vida necesita hoy convertirse en puerta de esperanza? ¿Dónde estás buscando saciedad fuera de Aquel que ya te amó primero?",
+      "reflexion": "La última palabra frente a la muerte espiritual de Samaria pertenece al Redentor.",
       "recuadros": [],
       "animacion": "fade",
       "layout": "centrado"
@@ -218,14 +423,14 @@
     {
       "tipo": "cierre",
       "imagen": "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?auto=format&fit=crop&w=1920&q=80",
-      "overlay": 0.6,
-      "titulo": "Como rocío sobre Israel",
-      "subtitulo": "Oración final",
+      "overlay": 0.58,
+      "titulo": "Cap. 14 · Sanidad por Pura Gracia",
+      "subtitulo": "Oseas 14:1–9 · Liturgia de Retorno (Shub)",
       "versiculo": {
-        "texto": "Yo seré a Israel como rocío; él florecerá como lirio, y extenderá sus raíces como el Líbano.",
-        "referencia": "Oseas 14:5"
+        "texto": "Yo sanaré su rebelión, los amaré de pura gracia; porque mi ira se apartó de ellos. Yo seré a Israel como rocío; él florecerá como lirio, y extenderá sus raíces como el Líbano.",
+        "referencia": "Oseas 14:4-5"
       },
-      "reflexion": "Señor, aparta nuestro corazón de los ídolos cotidianos. Haznos volver con palabras sinceras, sana nuestra inconstancia y enséñanos a caminar por tus caminos rectos. Amén.",
+      "reflexion": "Vuelve (שׁוּב, Shub) con palabras sinceras y renuncia a los ídolos. Él ama de pura gracia (נְדָבָה, nedavah) y nos hace florecer como olivo y vid. «¿Quién es sabio para que entienda esto? Porque los caminos de Jehová son rectos» (14:9).",
       "recuadros": [],
       "animacion": "revelar-palabras",
       "layout": "centrado"
