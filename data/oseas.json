@@ -158,8 +158,8 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "",
-      "overlay": 0,
+      "imagen": "assets/images/02_Cap2_Desierto_Valle_Acor.jpg",
+      "overlay": 0.66,
       "titulo": "Cap. 2 · Cinco pilares del nuevo pacto",
       "subtitulo": "Oseas 2:19–20",
       "versiculo": {
