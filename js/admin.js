@@ -172,8 +172,20 @@
     let startX = 0, startY = 0;
     let initValX = 50, initValY = 50;
 
+    let activeComp = null;
+
     deviceFrameEl.addEventListener("pointerdown", (e) => {
       if (e.target.closest("button")) return;
+      const comp = e.target.closest(".lexicon-compare");
+      if (comp) {
+        activeComp = comp;
+        deviceFrameEl.setPointerCapture(e.pointerId);
+        const r = comp.getBoundingClientRect();
+        const pct = Math.max(5, Math.min(95, ((e.clientX - r.left) / r.width) * 100));
+        comp.style.setProperty("--split", `${pct.toFixed(1)}%`);
+        return;
+      }
+
       const slide = state.book.slides[state.currentIndex];
       if (!slide) return;
       dragging = true;
@@ -192,6 +204,12 @@
     });
 
     deviceFrameEl.addEventListener("pointermove", (e) => {
+      if (activeComp) {
+        const r = activeComp.getBoundingClientRect();
+        const pct = Math.max(5, Math.min(95, ((e.clientX - r.left) / r.width) * 100));
+        activeComp.style.setProperty("--split", `${pct.toFixed(1)}%`);
+        return;
+      }
       if (!dragging) return;
       const slide = state.book.slides[state.currentIndex];
       const rect = deviceFrameEl.getBoundingClientRect();
@@ -217,7 +235,7 @@
       }
     });
 
-    deviceFrameEl.addEventListener("pointerup", () => { dragging = false; });
+    deviceFrameEl.addEventListener("pointerup", () => { dragging = false; activeComp = null; });
   }
 
   function handleImageFile(file) {

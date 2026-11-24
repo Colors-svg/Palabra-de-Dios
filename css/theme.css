@@ -822,6 +822,7 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
   z-index: 4;
   transform: translateX(-50%);
   cursor: ew-resize;
+  touch-action: none;
 }
 
 .compare-knob {
