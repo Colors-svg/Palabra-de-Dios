@@ -557,12 +557,16 @@
   }
 
   async function init() {
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get("libro");
     try {
       const res = await fetch("data/libros.json");
       state.catalog = await res.json();
       const sel = document.getElementById("st-book-select");
       sel.innerHTML = state.catalog.map(b => `<option value="${escapeHTML(b.key)}">${escapeHTML(b.titulo)}</option>`).join("");
-      await loadBook(state.catalog[0]?.key || "oseas");
+      const initialKey = (requested && state.catalog.some(b => b.key === requested)) ? requested : (state.catalog[0]?.key || "oseas");
+      sel.value = initialKey;
+      await loadBook(initialKey);
     } catch {
       showToast("Error cargando data/libros.json");
     }

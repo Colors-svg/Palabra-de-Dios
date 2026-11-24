@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="oscuro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Centro de Control — Palabra Visual</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/theme.css" />
+
+  <style>
+    body.panel-body {
+      overflow-y: auto;
+      min-height: 100vh;
+      background: radial-gradient(circle at top right, rgba(207, 168, 110, 0.08), transparent 45%), var(--bg-base);
+    }
+
+    .panel-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .panel-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .panel-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.08;
+    }
+
+    .panel-subtitle {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+    }
+
+    .section-heading {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: 1.25rem;
+    }
+
+    .hub-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--border-subtle);
+      border-top: 1px solid var(--border-glow);
+      border-radius: 20px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.15rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hub-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .hub-card-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .hub-card-meta {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 0.3rem;
+    }
+
+    .status-pill {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.68rem;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .status-pill--live {
+      background: rgba(52, 211, 153, 0.14);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.32);
+    }
+
+    .status-pill--scheduled {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border-glow);
+    }
+
+    .schedule-box {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.65rem 0.85rem;
+    }
+
+    .hub-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .hub-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.52rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .hub-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .hub-btn--primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #14110d;
+      font-weight: 600;
+    }
+
+    .hub-btn--primary:hover {
+      background: var(--accent);
+      color: #14110d;
+      opacity: 0.92;
+    }
+  </style>
+</head>
+<body class="panel-body">
+  <div class="panel-container">
+    <header class="panel-header">
+      <div>
+        <span class="kicker" style="margin-bottom:0.4rem;">Palabra Visual</span>
+        <h1 class="panel-title">Centro de Control</h1>
+        <p class="panel-subtitle">Todos tus enlaces públicos, programaciones activas y herramientas de edición en un solo lugar.</p>
+      </div>
+      <div class="hub-actions">
+        <a class="hub-btn hub-btn--primary" href="admin.html">Abrir Estudio de Edición</a>
+      </div>
+    </header>
+
+    <section aria-labelledby="sec-lecturas">
+      <h2 class="section-heading" id="sec-lecturas">Lecturas y Enlaces Activos</h2>
+      <div class="cards-grid" id="books-grid">
+        <p style="color:var(--text-muted); font-size:0.88rem;">Cargando catálogo...</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="sec-paneles">
+      <h2 class="section-heading" id="sec-paneles">Paneles y Documentación</h2>
+      <div class="cards-grid">
+        <article class="hub-card">
+          <div>
+            <h3 class="hub-card-title">Estudio de Edición</h3>
+            <p class="hub-card-meta">Editor visual 16:9 / 9:16, encuadre arrastrable, carga de imágenes, comparadores Hebreo/Griego y vista previa en vivo.</p>
+          </div>
+          <div class="hub-actions">
+            <a class="hub-btn hub-btn--primary" href="admin.html">Abrir Estudio</a>
+          </div>
+        </article>
+
+        <article class="hub-card">
+          <div>
+            <h3 class="hub-card-title">Guía del Orador (Oseas)</h3>
+            <p class="hub-card-meta">Contexto histórico completo, raíces hebreas y notas detalladas diapositiva por diapositiva (1–18).</p>
+          </div>
+          <div class="hub-actions">
+            <a class="hub-btn" href="https://github.com/Colors-svg/Palabra-de-Dios/blob/main/GUIA_ORADOR_OSEAS.md" target="_blank" rel="noopener">Ver en GitHub</a>
+          </div>
+        </article>
+
+        <article class="hub-card">
+          <div>
+            <h3 class="hub-card-title">Sistema MCP &amp; Guía IA</h3>
+            <p class="hub-card-meta">Esquema JSON, servidor MCP (<code>mcp/server.mjs</code>) e instrucciones para que cualquier IA edite el contenido.</p>
+          </div>
+          <div class="hub-actions">
+            <a class="hub-btn" href="https://github.com/Colors-svg/Palabra-de-Dios/blob/main/AI_GUIDE.md" target="_blank" rel="noopener">Ver Guía IA</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const toastEl = document.getElementById("toast");
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add("is-visible");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => toastEl.classList.remove("is-visible"), 2400);
+    }
+
+    function escapeHTML(str = "") {
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    async function loadHub() {
+      const grid = document.getElementById("books-grid");
+      try {
+        const res = await fetch("data/libros.json");
+        const catalog = await res.json();
+
+        const details = await Promise.all(catalog.map(async (entry) => {
+          try {
+            const bRes = await fetch(entry.archivo);
+            const book = await bRes.json();
+            return { entry, book };
+          } catch {
+            return { entry, book: null };
+          }
+        }));
+
+        grid.innerHTML = details.map(({ entry, book }) => {
+          const unlockRaw = book?.desbloqueo || "";
+          const unlockTime = unlockRaw ? new Date(unlockRaw).getTime() : 0;
+          const isScheduled = Boolean(unlockRaw && !Number.isNaN(unlockTime) && Date.now() < unlockTime);
+
+          const statusHTML = isScheduled
+            ? `<span class="status-pill status-pill--scheduled">Programado</span>`
+            : `<span class="status-pill status-pill--live">Disponible</span>`;
+
+          const scheduleInfo = isScheduled
+            ? `<div class="schedule-box">Apertura: <strong>${escapeHTML(new Date(unlockTime).toLocaleString("es-ES", { dateStyle: "medium", timeStyle: "short" }))}</strong></div>`
+            : `<div class="schedule-box">Acceso libre sin bloqueo horario.</div>`;
+
+          const pageHref = `${encodeURIComponent(entry.key)}.html`;
+          const fullUrl = new URL(pageHref, window.location.href).href;
+
+          return `
+            <article class="hub-card">
+              <div>
+                <div class="hub-card-top">
+                  <div>
+                    <h3 class="hub-card-title">${escapeHTML(book?.libro || entry.titulo)}</h3>
+                    <p class="hub-card-meta">${(book?.slides?.length || entry.slides)} diapositivas &middot; ${escapeHTML(book?.version || entry.version)}</p>
+                  </div>
+                  ${statusHTML}
+                </div>
+              </div>
+              ${scheduleInfo}
+              <div class="hub-actions">
+                <a class="hub-btn hub-btn--primary" href="${pageHref}" target="_blank">Abrir enlace</a>
+                <button class="hub-btn" type="button" data-copy-url="${escapeHTML(fullUrl)}">Copiar link</button>
+                <a class="hub-btn" href="admin.html?libro=${encodeURIComponent(entry.key)}">Editar</a>
+              </div>
+            </article>
+          `;
+        }).join("");
+
+        grid.querySelectorAll("[data-copy-url]").forEach(btn => {
+          btn.addEventListener("click", async () => {
+            try {
+              await navigator.clipboard.writeText(btn.dataset.copyUrl);
+              showToast("Enlace copiado al portapapeles");
+            } catch {
+              prompt("Copia este enlace:", btn.dataset.copyUrl);
+            }
+          });
+        });
+      } catch {
+        grid.innerHTML = `<p style="color:var(--text-secondary);">No se pudo cargar <code>data/libros.json</code>.</p>`;
+      }
+    }
+
+    loadHub();
+  </script>
+</body>
+</html>
