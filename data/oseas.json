@@ -32,8 +32,8 @@
     },
     {
       "tipo": "reflexion",
-      "imagen": "",
-      "overlay": 0,
+      "imagen": "assets/images/00_Portada_Profeta_Samaria.jpg",
+      "overlay": 0.76,
       "titulo": "Tres claves del libro",
       "subtitulo": "Panorama general",
       "versiculo": {
@@ -66,8 +66,8 @@
     },
     {
       "tipo": "lista",
-      "imagen": "",
-      "overlay": 0,
+      "imagen": "assets/images/04_Cap4_Lugar_Alto_Encinas.jpg",
+      "overlay": 0.76,
       "titulo": "El contexto en 3 momentos",
       "subtitulo": "Siglo VIII a.C. · Reino del Norte",
       "versiculo": {

@@ -101,7 +101,7 @@
 
     const bgHTML = (hasBg && tipo !== "dividida") ? `
       <div class="slide-bg" style="${zoomStyle}">
-        <img class="slide-bg-img ${hasBg ? "ken-burns" : ""}" style="${focalStyle}" src="${escapeHTML(slide.imagen)}" alt="" loading="lazy" />
+        <img class="slide-bg-img ${hasBg ? "ken-burns" : ""}" style="${focalStyle}" src="${escapeHTML(slide.imagen)}" alt="" loading="eager" />
       </div>
       <div class="slide-overlay" style="${overlayStyle}"></div>
     ` : "";
